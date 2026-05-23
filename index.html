@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Neelam AI Labs | AI Portfolio & Practical Software</title>
+
+  <meta
+    name="description"
+    content="Neelam AI Labs is a professional AI portfolio showcasing practical AI tools, local software, GenAI projects, RAG systems, MLOps, and enterprise AI solutions."
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8fafc;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    header h2 {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      max-width: 780px;
+      margin: 0 auto 30px;
+      font-size: 18px;
+      color: #e5e7eb;
+    }
+
+    nav {
+      background: white;
+      padding: 14px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #1f2937;
+      margin: 0 14px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    section h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .section-subtitle {
+      color: #4b5563;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      margin: 20px 0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin: 6px;
+      transition: 0.2s ease;
+    }
+
+    .primary-button {
+      background: #2563eb;
+      color: white;
+    }
+
+    .primary-button:hover {
+      background: #1d4ed8;
+    }
+
+    .secondary-button {
+      background: white;
+      color: #1e3a8a;
+    }
+
+    .secondary-button:hover {
+      background: #e5e7eb;
+    }
+
+    .dark-button {
+      background: #111827;
+      color: white;
+    }
+
+    .dark-button:hover {
+      background: #374151;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin: 4px 4px 4px 0;
+      font-weight: bold;
+    }
+
+    .product-card h3 {
+      margin-top: 0;
+      color: #111827;
+      font-size: 24px;
+    }
+
+    .product-status {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #047857;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .coming-soon {
+      background: #fff7ed;
+      color: #c2410c;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .highlight-box {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 22px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 6px 0;
+      color: #d1d5db;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 36px;
+      }
+
+      header h2 {
+        font-size: 20px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Neelam AI Labs</h1>
+    <h2>AI Portfolio, Practical Tools & Local Software</h2>
+    <p>
+      I build practical AI software, GenAI solutions, RAG systems, and enterprise-ready tools
+      that people can download, run, and use on their own machines.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#software" class="button primary-button">Explore Software</a>
+      <a href="#contact" class="button secondary-button">Contact Me</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#software">Software</a>
+    <a href="#case-studies">Case Studies</a>
+    <a href="#articles">Articles</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p class="section-subtitle">
+      I am an AI and technology professional with around 15 years of experience across AI,
+      data platforms, cloud engineering, GenAI, RAG, MLOps, and enterprise architecture.
+    </p>
+
+    <div class="card">
+      <p>
+        Through Neelam AI Labs, I share practical AI tools, product ideas, software demos,
+        and learning resources that help professionals, developers, students, and businesses
+        understand and use AI in real-world scenarios.
+      </p>
+
+      <p>
+        My focus is not only on building AI demos, but on creating useful, understandable,
+        and locally runnable software that people can test and apply in their own work.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Mission:</strong>
+      To make AI tools practical, accessible, and useful for real people and real business problems.
+    </div>
+  </section>
+
+  <section id="expertise">
+    <h2>Expertise</h2>
+    <p class="section-subtitle">
+      My work covers modern AI systems, enterprise-grade architecture, and practical implementation.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Generative AI</h3>
+        <p>
+          Building AI applications using LLMs, prompt engineering, agents, copilots,
+          and business-specific AI assistants.
+        </p>
+        <span class="tag">GenAI</span>
+        <span class="tag">LLMs</span>
+        <span class="tag">AI Agents</span>
+      </div>
+
+      <div class="card">
+        <h3>RAG & Knowledge Systems</h3>
+        <p>
+          Designing document search, vector retrieval, semantic search, hybrid retrieval,
+          and enterprise knowledge assistant systems.
+        </p>
+        <span class="tag">RAG</span>
+        <span class="tag">Vector DB</span>
+        <span class="tag">Semantic Search</span>
+      </div>
+
+      <div class="card">
+        <h3>MLOps & LLMOps</h3>
+        <p>
+          Creating production-ready ML and LLM systems with pipelines, evaluation,
+          monitoring, governance, and deployment workflows.
+        </p>
+        <span class="tag">MLOps</span>
+        <span class="tag">LLMOps</span>
+        <span class="tag">Observability</span>
+      </div>
+
+      <div class="card">
+        <h3>Cloud & Architecture</h3>
+        <p>
+          Architecting scalable AI platforms using AWS, Azure, APIs, containers,
+          data platforms, security, and enterprise integration.
+        </p>
+        <span class="tag">AWS</span>
+        <span class="tag">Azure</span>
+        <span class="tag">Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="software">
+    <h2>Software Products</h2>
+    <p class="section-subtitle">
+      These are practical AI tools and software products that users can download,
+      run locally, and use for learning or real-world productivity.
+    </p>
+
+    <div class="grid">
+
+      <div class="card product-card">
+        <span class="product-status coming-soon">Coming Soon</span>
+        <h3>AIRD Lite</h3>
+        <p>
+          A local AI Data Readiness Scanner that checks whether documents are ready
+          for AI, RAG, chatbot, and enterprise search use cases.
+        </p>
+        <ul>
+          <li>Upload PDF, TXT, or CSV files</li>
+          <li>Check data quality and completeness</li>
+          <li>Generate AI readiness score</li>
+          <li>Export simple readiness report</li>
+        </ul>
+        <a href="#" class="button dark-button">Download</a>
+        <a href="#" class="button primary-button">View Code</a>
+      </div>
+
+      <div class="card product-card">
+        <span class="product-status coming-soon">Coming Soon</span>
+        <h3>Local RAG Builder</h3>
+        <p>
+          A local tool to create a document-based chatbot using open-source embeddings
+          and local vector storage.
+        </p>
+        <ul>
+          <li>Run on local machine</li>
+          <li>Upload private documents</li>
+          <li>Create local knowledge base</li>
+          <li>Ask questions from your own files</li>
+        </ul>
+        <a href="#" class="button dark-button">Download</a>
+        <a href="#" class="button primary-button">View Code</a>
+      </div>
+
+      <div class="card product-card">
+        <span class="product-status coming-soon">Coming Soon</span>
+        <h3>Resume AI Assistant</h3>
+        <p>
+          A local resume analyzer that compares a resume with a job description
+          and gives improvement suggestions.
+        </p>
+        <ul>
+          <li>Resume and JD comparison</li>
+          <li>Skill gap analysis</li>
+          <li>ATS-style improvement tips</li>
+          <li>Local-first usage</li>
+        </ul>
+        <a href="#" class="button dark-button">Download</a>
+        <a href="#" class="button primary-button">View Code</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="case-studies">
+    <h2>Case Studies</h2>
+    <p class="section-subtitle">
+      Selected examples of AI, cloud, data, and enterprise architecture work.
+    </p>
+
+    <div class="card">
+      <h3>Enterprise RAG Platform</h3>
+      <p>
+        Designed a retrieval-augmented generation system for enterprise knowledge discovery,
+        combining document ingestion, embeddings, vector search, access control, and chatbot experience.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>AI Data Readiness Framework</h3>
+      <p>
+        Built a framework to evaluate whether enterprise documents and datasets are ready
+        for AI usage based on quality, completeness, security, metadata, and trust scoring.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Agentic AI Workflow</h3>
+      <p>
+        Created AI agent workflow designs where agents can plan tasks, call tools,
+        ask for human approval, and complete business operations safely.
+      </p>
+    </div>
+  </section>
+
+  <section id="articles">
+    <h2>Articles & Thoughts</h2>
+    <p class="section-subtitle">
+      I write about AI, GenAI, RAG, MLOps, Agentic AI, software architecture,
+      and practical ways to build useful AI products.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>How to Build Practical AI Tools</h3>
+        <p>
+          A beginner-friendly explanation of how AI tools can move from idea to real usable software.
+        </p>
+        <a href="#" class="button primary-button">Read Article</a>
+      </div>
+
+      <div class="card">
+        <h3>RAG Explained Simply</h3>
+        <p>
+          A simple explanation of how retrieval-augmented generation works and why data quality matters.
+        </p>
+        <a href="#" class="button primary-button">Read Article</a>
+      </div>
+
+      <div class="card">
+        <h3>What Makes Data AI-Ready?</h3>
+        <p>
+          A practical guide to understanding AI-ready data, trust scores, metadata, and governance.
+        </p>
+        <a href="#" class="button primary-button">Read Article</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="section-subtitle">
+      Reach out for AI product ideas, collaborations, consulting, architecture discussions,
+      or practical AI software development.
+    </p>
+
+    <div class="card">
+      <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/neelam-yadav-a858a229/</p>
+      <p><strong>GitHub:</strong> https://github.com/neelam53yadav</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Neelam AI Labs. All rights reserved.</p>
+    <p>Built with GitHub and Cloudflare Pages.</p>
+  </footer>
+
+</body>
+</html>
