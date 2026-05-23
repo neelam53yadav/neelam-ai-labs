@@ -4,12 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Neelam AI Labs | AI Portfolio & Practical Software</title>
+  <title>Neelam AI Labs | AI Products, GenAI Tools & Practical Software</title>
 
   <meta
     name="description"
-    content="Neelam AI Labs is a professional AI portfolio showcasing practical AI tools, local software, GenAI projects, RAG systems, MLOps, and enterprise AI solutions."
+    content="Neelam AI Labs builds practical AI products, GenAI tools, RAG systems, Agentic AI workflows, MLOps solutions, and local-first software for professionals and businesses."
   />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     * {
@@ -17,11 +24,30 @@
       scroll-behavior: smooth;
     }
 
+    :root {
+      --dark: #07111f;
+      --navy: #0f172a;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --cyan: #06b6d4;
+      --purple: #7c3aed;
+      --text: #1f2937;
+      --muted: #64748b;
+      --soft: #f8fafc;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --green: #10b981;
+      --orange: #f97316;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8fafc;
-      color: #1f2937;
+      font-family: "Inter", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.08), transparent 26%),
+        #f8fafc;
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -29,190 +55,434 @@
       text-decoration: none;
     }
 
+    .container {
+      max-width: 1160px;
+      margin: auto;
+      padding: 0 22px;
+    }
+
     header {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(7, 17, 31, 0.98), rgba(15, 23, 42, 0.96)),
+        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.55), transparent 35%),
+        radial-gradient(circle at 80% 10%, rgba(124, 58, 237, 0.45), transparent 30%);
       color: white;
-      padding: 80px 20px;
+      padding: 96px 20px 86px;
       text-align: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.35;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #dbeafe;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      margin-bottom: 24px;
     }
 
     header h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 1;
+      margin: 0 0 18px;
+      letter-spacing: -2px;
     }
 
     header h2 {
-      font-size: 24px;
-      font-weight: 400;
-      margin-bottom: 20px;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.25;
+      font-weight: 700;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      color: #f8fafc;
     }
 
     header p {
-      max-width: 780px;
-      margin: 0 auto 30px;
+      max-width: 820px;
+      margin: 0 auto 34px;
       font-size: 18px;
-      color: #e5e7eb;
+      color: #cbd5e1;
     }
 
-    nav {
-      background: white;
-      padding: 14px 20px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav a {
-      color: #1f2937;
-      margin: 0 14px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: #2563eb;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    section h2 {
-      font-size: 34px;
-      margin-bottom: 20px;
-      color: #0f172a;
-    }
-
-    .section-subtitle {
-      color: #4b5563;
-      max-width: 800px;
-      margin-bottom: 30px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      margin: 20px 0;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+    .gradient-text {
+      background: linear-gradient(90deg, #60a5fa, #22d3ee, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero-buttons {
-      margin-top: 30px;
+      margin-top: 32px;
     }
 
     .button {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
       margin: 6px;
-      transition: 0.2s ease;
+      transition: 0.22s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .primary-button {
-      background: #2563eb;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
       color: white;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28);
     }
 
     .primary-button:hover {
-      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.35);
     }
 
     .secondary-button {
-      background: white;
-      color: #1e3a8a;
+      background: rgba(255,255,255,0.10);
+      color: white;
+      border-color: rgba(255,255,255,0.20);
+      backdrop-filter: blur(10px);
     }
 
     .secondary-button:hover {
-      background: #e5e7eb;
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-2px);
     }
 
     .dark-button {
-      background: #111827;
+      background: #0f172a;
       color: white;
     }
 
     .dark-button:hover {
-      background: #374151;
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
+
+    .ghost-button {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+
+    .ghost-button:hover {
+      background: #dbeafe;
+      transform: translateY(-2px);
+    }
+
+    nav {
+      background: rgba(255,255,255,0.88);
+      padding: 14px 20px;
+      text-align: center;
+      box-shadow: 0 8px 28px rgba(15,23,42,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226,232,240,0.8);
+    }
+
+    nav a {
+      color: #334155;
+      margin: 0 14px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    section h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.1;
+      margin: 0 0 16px;
+      color: var(--navy);
+      letter-spacing: -1px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 820px;
+      margin-bottom: 34px;
+      font-size: 17px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.92);
+      border-radius: 24px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(226,232,240,0.9);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.12);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .about-card {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.92));
+    }
+
+    .about-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -80px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%);
+    }
+
+    .strong-line {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.18;
+      letter-spacing: -1px;
+      color: #0f172a;
+      margin: 0 0 18px;
+      max-width: 900px;
+    }
+
+    .mission-box {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #0f172a, #1e3a8a 58%, #0e7490);
+      color: white;
+      border-radius: 26px;
+      padding: 34px;
+      margin-top: 26px;
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.22);
+    }
+
+    .mission-box h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 28px;
+      margin: 0 0 10px;
+    }
+
+    .mission-box p {
+      color: #dbeafe;
+      max-width: 880px;
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .mission-box::after {
+      content: "AI";
+      position: absolute;
+      right: 24px;
+      bottom: -34px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 130px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.06);
+    }
+
+    .expertise-card h3,
+    .product-card h3,
+    .article-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      margin-top: 0;
+      color: #111827;
+      font-size: 24px;
+      letter-spacing: -0.3px;
+    }
+
+    .expertise-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      margin-bottom: 18px;
     }
 
     .tag {
       display: inline-block;
-      background: #dbeafe;
+      background: #eff6ff;
       color: #1e40af;
-      padding: 6px 10px;
+      padding: 7px 11px;
       border-radius: 999px;
-      font-size: 13px;
-      margin: 4px 4px 4px 0;
-      font-weight: bold;
+      font-size: 12px;
+      margin: 5px 5px 0 0;
+      font-weight: 800;
+      border: 1px solid #bfdbfe;
     }
 
-    .product-card h3 {
-      margin-top: 0;
-      color: #111827;
-      font-size: 24px;
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
     }
 
     .product-status {
-      display: inline-block;
-      background: #ecfdf5;
-      color: #047857;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
-
-    .coming-soon {
+      display: inline-flex;
+      width: fit-content;
       background: #fff7ed;
       color: #c2410c;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 14px;
+      border: 1px solid #fed7aa;
     }
 
-    ul {
-      padding-left: 20px;
+    .product-meta {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
     }
 
-    .highlight-box {
-      background: #eff6ff;
-      border-left: 5px solid #2563eb;
-      padding: 22px;
-      border-radius: 12px;
-      margin-top: 20px;
+    .product-features {
+      padding-left: 18px;
+      margin: 14px 0 22px;
+      color: #334155;
+    }
+
+    .download-row {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .download-row .button {
+      margin: 0;
+      padding: 10px 13px;
+      font-size: 13px;
+      border-radius: 10px;
+    }
+
+    .article-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+
+    .article-type {
+      display: inline-block;
+      color: #7c3aed;
+      background: #f3e8ff;
+      border: 1px solid #e9d5ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      align-items: center;
+      background:
+        linear-gradient(135deg, #ffffff, #eff6ff);
+    }
+
+    .contact-links a {
+      display: block;
+      color: #1d4ed8;
+      font-weight: 800;
+      margin: 10px 0;
+      word-break: break-word;
     }
 
     footer {
-      background: #0f172a;
+      background: #07111f;
       color: white;
       text-align: center;
-      padding: 35px 20px;
-      margin-top: 40px;
+      padding: 40px 20px;
+      margin-top: 20px;
     }
 
     footer p {
       margin: 6px 0;
-      color: #d1d5db;
+      color: #cbd5e1;
+    }
+
+    @media (max-width: 960px) {
+      .grid,
+      .grid-2,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 36px;
-      }
-
-      header h2 {
-        font-size: 20px;
+      header {
+        padding: 72px 18px;
       }
 
       nav a {
@@ -220,8 +490,10 @@
         margin: 8px;
       }
 
-      section h2 {
-        font-size: 28px;
+      .card,
+      .about-card,
+      .mission-box {
+        padding: 24px;
       }
     }
   </style>
@@ -230,251 +502,310 @@
 <body>
 
   <header>
-    <h1>Neelam AI Labs</h1>
-    <h2>AI Portfolio, Practical Tools & Local Software</h2>
-    <p>
-      I build practical AI software, GenAI solutions, RAG systems, and enterprise-ready tools
-      that people can download, run, and use on their own machines.
-    </p>
+    <div class="hero-content">
+      <div class="eyebrow">AI Products • GenAI Systems • Local Software</div>
 
-    <div class="hero-buttons">
-      <a href="#software" class="button primary-button">Explore Software</a>
-      <a href="#contact" class="button secondary-button">Contact Me</a>
+      <h1>Neelam AI Labs</h1>
+
+      <h2>
+        Building <span class="gradient-text">practical AI software</span> that solves real problems,
+        not just impressive demos.
+      </h2>
+
+      <p>
+        I design and build AI products, RAG systems, agentic workflows, automation platforms,
+        and local-first tools that professionals, teams, and businesses can actually use.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#software" class="button primary-button">Explore Products</a>
+        <a href="#articles" class="button secondary-button">Read My Thinking</a>
+        <a href="#contact" class="button secondary-button">Connect With Me</a>
+      </div>
     </div>
   </header>
 
   <nav>
     <a href="#about">About</a>
     <a href="#expertise">Expertise</a>
-    <a href="#software">Software</a>
-    <a href="#case-studies">Case Studies</a>
+    <a href="#software">Products</a>
     <a href="#articles">Articles</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p class="section-subtitle">
-      I am an AI and technology professional with around 15 years of experience across AI,
-      data platforms, cloud engineering, GenAI, RAG, MLOps, and enterprise architecture.
-    </p>
+    <div class="container">
+      <h2>About Me</h2>
 
-    <div class="card">
-      <p>
-        Through Neelam AI Labs, I share practical AI tools, product ideas, software demos,
-        and learning resources that help professionals, developers, students, and businesses
-        understand and use AI in real-world scenarios.
-      </p>
+      <div class="card about-card">
+        <p class="strong-line">
+          I am an AI builder and problem solver who turns complex business problems
+          into simple, usable, and production-ready AI products.
+        </p>
 
-      <p>
-        My focus is not only on building AI demos, but on creating useful, understandable,
-        and locally runnable software that people can test and apply in their own work.
-      </p>
-    </div>
+        <p>
+          My work sits at the intersection of <strong>Generative AI, machine learning,
+          cloud platforms, software engineering, automation, and enterprise architecture</strong>.
+          I enjoy building systems that are useful, reliable, secure, and easy for people to adopt.
+        </p>
 
-    <div class="highlight-box">
-      <strong>Mission:</strong>
-      To make AI tools practical, accessible, and useful for real people and real business problems.
+        <p>
+          Through <strong>Neelam AI Labs</strong>, I share practical tools, AI product experiments,
+          software utilities, and learning resources for professionals who want to use AI in real work,
+          not only in theory.
+        </p>
+      </div>
+
+      <div class="mission-box">
+        <h3>Mission</h3>
+        <p>
+          To make AI useful beyond buzzwords — by creating practical, trustworthy, and locally runnable
+          tools that help people work smarter, automate better, and solve meaningful problems with confidence.
+        </p>
+      </div>
     </div>
   </section>
 
   <section id="expertise">
-    <h2>Expertise</h2>
-    <p class="section-subtitle">
-      My work covers modern AI systems, enterprise-grade architecture, and practical implementation.
-    </p>
+    <div class="container">
+      <h2>Expertise</h2>
+      <p class="section-subtitle">
+        My expertise combines hands-on engineering, AI architecture, cloud deployment,
+        DevOps practices, and product thinking.
+      </p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Generative AI</h3>
-        <p>
-          Building AI applications using LLMs, prompt engineering, agents, copilots,
-          and business-specific AI assistants.
-        </p>
-        <span class="tag">GenAI</span>
-        <span class="tag">LLMs</span>
-        <span class="tag">AI Agents</span>
-      </div>
+      <div class="grid">
+        <div class="card expertise-card">
+          <div class="expertise-icon">🤖</div>
+          <h3>Generative AI & LLMs</h3>
+          <p>
+            Designing LLM-powered applications using prompt engineering, GPT APIs,
+            function calling, evaluation, cost optimization, and business-specific AI assistants.
+          </p>
+          <span class="tag">GenAI</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">Evaluation</span>
+        </div>
 
-      <div class="card">
-        <h3>RAG & Knowledge Systems</h3>
-        <p>
-          Designing document search, vector retrieval, semantic search, hybrid retrieval,
-          and enterprise knowledge assistant systems.
-        </p>
-        <span class="tag">RAG</span>
-        <span class="tag">Vector DB</span>
-        <span class="tag">Semantic Search</span>
-      </div>
+        <div class="card expertise-card">
+          <div class="expertise-icon">🔎</div>
+          <h3>RAG & Vector Search</h3>
+          <p>
+            Building retrieval systems with embeddings, vector databases, hybrid search,
+            knowledge retrieval, access control, and enterprise-grade document intelligence.
+          </p>
+          <span class="tag">RAG</span>
+          <span class="tag">Embeddings</span>
+          <span class="tag">FAISS</span>
+          <span class="tag">Qdrant</span>
+        </div>
 
-      <div class="card">
-        <h3>MLOps & LLMOps</h3>
-        <p>
-          Creating production-ready ML and LLM systems with pipelines, evaluation,
-          monitoring, governance, and deployment workflows.
-        </p>
-        <span class="tag">MLOps</span>
-        <span class="tag">LLMOps</span>
-        <span class="tag">Observability</span>
-      </div>
+        <div class="card expertise-card">
+          <div class="expertise-icon">🧠</div>
+          <h3>ML & AI Engineering</h3>
+          <p>
+            Creating ML solutions across forecasting, NLP, image similarity, model pipelines,
+            data preparation, feature engineering, and predictive systems.
+          </p>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Forecasting</span>
+          <span class="tag">Scikit-Learn</span>
+        </div>
 
-      <div class="card">
-        <h3>Cloud & Architecture</h3>
-        <p>
-          Architecting scalable AI platforms using AWS, Azure, APIs, containers,
-          data platforms, security, and enterprise integration.
-        </p>
-        <span class="tag">AWS</span>
-        <span class="tag">Azure</span>
-        <span class="tag">Cloud</span>
+        <div class="card expertise-card">
+          <div class="expertise-icon">🕸️</div>
+          <h3>Agentic AI & Automation</h3>
+          <p>
+            Designing AI agents and multi-step workflows that can plan, use tools,
+            call APIs, ask for human approval, and complete business processes safely.
+          </p>
+          <span class="tag">AI Agents</span>
+          <span class="tag">LangGraph</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Tool Calling</span>
+        </div>
+
+        <div class="card expertise-card">
+          <div class="expertise-icon">⚙️</div>
+          <h3>MLOps, LLMOps & DevOps</h3>
+          <p>
+            Building production workflows with CI/CD, MLflow, model versioning,
+            observability, drift detection, rollback, monitoring, and release automation.
+          </p>
+          <span class="tag">MLOps</span>
+          <span class="tag">LLMOps</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">MLflow</span>
+        </div>
+
+        <div class="card expertise-card">
+          <div class="expertise-icon">☁️</div>
+          <h3>Cloud, Data & Security</h3>
+          <p>
+            Architecting scalable AI and data platforms using AWS, Azure, Kubernetes,
+            Docker, Terraform, APIs, databases, RBAC/IAM, and security-by-design practices.
+          </p>
+          <span class="tag">AWS</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">DevSecOps</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="software">
-    <h2>Software Products</h2>
-    <p class="section-subtitle">
-      These are practical AI tools and software products that users can download,
-      run locally, and use for learning or real-world productivity.
-    </p>
-
-    <div class="grid">
-
-      <div class="card product-card">
-        <span class="product-status coming-soon">Coming Soon</span>
-        <h3>AIRD Lite</h3>
-        <p>
-          A local AI Data Readiness Scanner that checks whether documents are ready
-          for AI, RAG, chatbot, and enterprise search use cases.
-        </p>
-        <ul>
-          <li>Upload PDF, TXT, or CSV files</li>
-          <li>Check data quality and completeness</li>
-          <li>Generate AI readiness score</li>
-          <li>Export simple readiness report</li>
-        </ul>
-        <a href="#" class="button dark-button">Download</a>
-        <a href="#" class="button primary-button">View Code</a>
-      </div>
-
-      <div class="card product-card">
-        <span class="product-status coming-soon">Coming Soon</span>
-        <h3>Local RAG Builder</h3>
-        <p>
-          A local tool to create a document-based chatbot using open-source embeddings
-          and local vector storage.
-        </p>
-        <ul>
-          <li>Run on local machine</li>
-          <li>Upload private documents</li>
-          <li>Create local knowledge base</li>
-          <li>Ask questions from your own files</li>
-        </ul>
-        <a href="#" class="button dark-button">Download</a>
-        <a href="#" class="button primary-button">View Code</a>
-      </div>
-
-      <div class="card product-card">
-        <span class="product-status coming-soon">Coming Soon</span>
-        <h3>Resume AI Assistant</h3>
-        <p>
-          A local resume analyzer that compares a resume with a job description
-          and gives improvement suggestions.
-        </p>
-        <ul>
-          <li>Resume and JD comparison</li>
-          <li>Skill gap analysis</li>
-          <li>ATS-style improvement tips</li>
-          <li>Local-first usage</li>
-        </ul>
-        <a href="#" class="button dark-button">Download</a>
-        <a href="#" class="button primary-button">View Code</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="case-studies">
-    <h2>Case Studies</h2>
-    <p class="section-subtitle">
-      Selected examples of AI, cloud, data, and enterprise architecture work.
-    </p>
-
-    <div class="card">
-      <h3>Enterprise RAG Platform</h3>
-      <p>
-        Designed a retrieval-augmented generation system for enterprise knowledge discovery,
-        combining document ingestion, embeddings, vector search, access control, and chatbot experience.
+    <div class="container">
+      <h2>Software Products</h2>
+      <p class="section-subtitle">
+        Practical AI products and local-first tools designed for professionals, job seekers,
+        creators, teams, and businesses.
       </p>
-    </div>
 
-    <div class="card">
-      <h3>AI Data Readiness Framework</h3>
-      <p>
-        Built a framework to evaluate whether enterprise documents and datasets are ready
-        for AI usage based on quality, completeness, security, metadata, and trust scoring.
-      </p>
-    </div>
+      <div class="grid">
 
-    <div class="card">
-      <h3>Agentic AI Workflow</h3>
-      <p>
-        Created AI agent workflow designs where agents can plan tasks, call tools,
-        ask for human approval, and complete business operations safely.
-      </p>
+        <div class="card product-card">
+          <span class="product-status">Coming Soon</span>
+          <h3>AIRDops</h3>
+          <p class="product-meta">
+            AI readiness and data quality tool for documents, datasets, and RAG use cases.
+          </p>
+          <ul class="product-features">
+            <li>Scan documents for AI readiness</li>
+            <li>Generate quality and trust signals</li>
+            <li>Identify gaps before building RAG</li>
+            <li>Export readiness reports</li>
+          </ul>
+          <div class="download-row">
+            <a href="#" class="button dark-button">Windows</a>
+            <a href="#" class="button ghost-button">Mac</a>
+            <a href="#" class="button ghost-button">Linux</a>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <span class="product-status">Coming Soon</span>
+          <h3>ResuWin</h3>
+          <p class="product-meta">
+            AI-powered resume evaluator and job-match assistant for professionals.
+          </p>
+          <ul class="product-features">
+            <li>Compare resume with job description</li>
+            <li>Generate match score and gaps</li>
+            <li>Suggest stronger positioning</li>
+            <li>Support interview preparation</li>
+          </ul>
+          <div class="download-row">
+            <a href="#" class="button dark-button">Windows</a>
+            <a href="#" class="button ghost-button">Mac</a>
+            <a href="#" class="button ghost-button">Linux</a>
+          </div>
+        </div>
+
+        <div class="card product-card">
+          <span class="product-status">Coming Soon</span>
+          <h3>Conversation Tool</h3>
+          <p class="product-meta">
+            A local conversation intelligence tool for prompts, chat analysis, and AI workflows.
+          </p>
+          <ul class="product-features">
+            <li>Organize AI conversations</li>
+            <li>Extract actions and insights</li>
+            <li>Improve prompts and responses</li>
+            <li>Create reusable knowledge notes</li>
+          </ul>
+          <div class="download-row">
+            <a href="#" class="button dark-button">Windows</a>
+            <a href="#" class="button ghost-button">Mac</a>
+            <a href="#" class="button ghost-button">Linux</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <section id="articles">
-    <h2>Articles & Thoughts</h2>
-    <p class="section-subtitle">
-      I write about AI, GenAI, RAG, MLOps, Agentic AI, software architecture,
-      and practical ways to build useful AI products.
-    </p>
+    <div class="container">
+      <h2>Articles & Thoughts</h2>
+      <p class="section-subtitle">
+        I write about GenAI, RAG, AI readiness, LLMOps, Agentic AI, architecture,
+        observability, and practical ways to build useful AI products.
+      </p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>How to Build Practical AI Tools</h3>
-        <p>
-          A beginner-friendly explanation of how AI tools can move from idea to real usable software.
-        </p>
-        <a href="#" class="button primary-button">Read Article</a>
-      </div>
+      <div class="grid">
+        <div class="card article-card">
+          <span class="article-type">Medium Blog</span>
+          <h3>RAG, GenAI & Practical AI Systems</h3>
+          <p>
+            Thoughts on building retrieval-augmented generation systems, AI products,
+            and enterprise-ready GenAI solutions.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
 
-      <div class="card">
-        <h3>RAG Explained Simply</h3>
-        <p>
-          A simple explanation of how retrieval-augmented generation works and why data quality matters.
-        </p>
-        <a href="#" class="button primary-button">Read Article</a>
-      </div>
+        <div class="card article-card">
+          <span class="article-type">Medium Blog</span>
+          <h3>MLOps, LLMOps & AI Observability</h3>
+          <p>
+            Notes on production AI systems, evaluation, monitoring, drift, cost,
+            quality, and reliable AI delivery practices.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
 
-      <div class="card">
-        <h3>What Makes Data AI-Ready?</h3>
-        <p>
-          A practical guide to understanding AI-ready data, trust scores, metadata, and governance.
-        </p>
-        <a href="#" class="button primary-button">Read Article</a>
+        <div class="card article-card">
+          <span class="article-type">Medium Blog</span>
+          <h3>Agentic AI & AI Product Thinking</h3>
+          <p>
+            Ideas on agents, automation, tool orchestration, human approval workflows,
+            and building AI products people can actually use.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p class="section-subtitle">
-      Reach out for AI product ideas, collaborations, consulting, architecture discussions,
-      or practical AI software development.
-    </p>
+    <div class="container">
+      <h2>Contact</h2>
 
-    <div class="card">
-      <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/neelam-yadav-a858a229/</p>
-      <p><strong>GitHub:</strong> https://github.com/neelam53yadav</p>
+      <div class="card contact-card">
+        <div>
+          <h3>Let’s build useful AI.</h3>
+          <p>
+            Reach out for AI product ideas, collaboration, consulting, architecture discussions,
+            software development, or practical GenAI implementation.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/neelam-yadav-a858a229/" target="_blank">
+            LinkedIn: neelam-yadav
+          </a>
+          <a href="https://medium.com/@neelamyadav10053" target="_blank">
+            Medium: @neelamyadav10053
+          </a>
+          <a href="https://github.com/neelam-yadav" target="_blank">
+            GitHub: neelam-yadav
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
     <p>© 2026 Neelam AI Labs. All rights reserved.</p>
-    <p>Built with GitHub and Cloudflare Pages.</p>
+    <p>Practical AI products, local software, and GenAI thinking.</p>
   </footer>
 
 </body>
