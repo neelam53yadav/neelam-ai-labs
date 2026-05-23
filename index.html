@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Neelam AI Labs | AI Products, GenAI Tools & Practical Software</title>
+  <title>Neelam AI Labs | AI Products, GenAI Tools & Automation Systems</title>
 
   <meta
     name="description"
-    content="Neelam AI Labs builds practical AI products, GenAI tools, RAG systems, Agentic AI workflows, MLOps solutions, and local-first software for professionals and businesses."
+    content="Neelam AI Labs builds practical AI products, GenAI tools, RAG systems, Agentic AI workflows, MLOps solutions, automation tools, web apps, and digital products for professionals and businesses."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -28,16 +28,14 @@
       --dark: #07111f;
       --navy: #0f172a;
       --blue: #2563eb;
-      --blue-dark: #1d4ed8;
       --cyan: #06b6d4;
       --purple: #7c3aed;
+      --red: #dc2626;
       --text: #1f2937;
       --muted: #64748b;
       --soft: #f8fafc;
-      --card: #ffffff;
       --border: #e5e7eb;
-      --green: #10b981;
-      --orange: #f97316;
+      --card: #ffffff;
     }
 
     body {
@@ -117,7 +115,7 @@
     header h2 {
       font-size: clamp(22px, 3vw, 34px);
       line-height: 1.25;
-      font-weight: 700;
+      font-weight: 800;
       max-width: 900px;
       margin: 0 auto 20px;
       color: #f8fafc;
@@ -154,6 +152,7 @@
       transition: 0.22s ease;
       border: 1px solid transparent;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .primary-button {
@@ -189,14 +188,14 @@
       transform: translateY(-2px);
     }
 
-    .ghost-button {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border-color: #bfdbfe;
+    .youtube-button {
+      background: #dc2626;
+      color: white;
+      box-shadow: 0 12px 24px rgba(220, 38, 38, 0.22);
     }
 
-    .ghost-button:hover {
-      background: #dbeafe;
+    .youtube-button:hover {
+      background: #b91c1c;
       transform: translateY(-2px);
     }
 
@@ -253,20 +252,9 @@
       transition: 0.25s ease;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.12);
-    }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
     }
 
@@ -334,6 +322,35 @@
       color: rgba(255,255,255,0.06);
     }
 
+    .expertise-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      transform: translateY(0) scale(1);
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-12px) scale(1.035);
+      box-shadow: 0 28px 70px rgba(15, 23, 42, 0.16);
+      border-color: #bfdbfe;
+      z-index: 3;
+    }
+
+    .expertise-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
+      opacity: 0;
+      transition: 0.25s ease;
+    }
+
+    .expertise-card:hover::before {
+      opacity: 1;
+    }
+
     .expertise-card h3,
     .product-card h3,
     .article-card h3 {
@@ -345,35 +362,24 @@
     }
 
     .expertise-icon {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 25px;
       background: linear-gradient(135deg, #eff6ff, #dbeafe);
       margin-bottom: 18px;
     }
 
-    .tag {
-      display: inline-block;
-      background: #eff6ff;
-      color: #1e40af;
-      padding: 7px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      margin: 5px 5px 0 0;
-      font-weight: 800;
-      border: 1px solid #bfdbfe;
-    }
-
     .product-card {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       min-height: 100%;
       display: flex;
       flex-direction: column;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
     }
 
     .product-card::before {
@@ -381,6 +387,7 @@
       position: absolute;
       inset: 0 0 auto 0;
       height: 5px;
+      border-radius: 24px 24px 0 0;
       background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
     }
 
@@ -404,23 +411,205 @@
     }
 
     .product-features {
-      padding-left: 18px;
+      list-style: none;
+      padding-left: 0;
       margin: 14px 0 22px;
       color: #334155;
     }
 
-    .download-row {
+    .product-features li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .product-features li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .demo-video {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #0f172a;
+      margin: 18px 0 20px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .demo-video iframe {
+      width: 100%;
+      height: 190px;
+      display: block;
+      border: 0;
+    }
+
+    .demo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px;
+      background: #ffffff;
+    }
+
+    .demo-caption strong {
+      color: #0f172a;
+      font-size: 14px;
+    }
+
+    .product-actions {
       margin-top: auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
+      align-items: center;
     }
 
-    .download-row .button {
-      margin: 0;
-      padding: 10px 13px;
-      font-size: 13px;
-      border-radius: 10px;
+    .download-dropdown {
+      position: relative;
+      display: inline-block;
+      z-index: 5;
+    }
+
+    .download-dropdown summary {
+      list-style: none;
+    }
+
+    .download-dropdown summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .download-menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 8px);
+      width: 220px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+      padding: 8px;
+      z-index: 20;
+    }
+
+    .download-menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #0f172a;
+      font-weight: 800;
+      padding: 11px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    .download-menu a:hover {
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .testimonial-section {
+      overflow: hidden;
+    }
+
+    .testimonial-wrapper {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .testimonial-wrapper::before,
+    .testimonial-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .testimonial-wrapper::before {
+      left: 0;
+      background: linear-gradient(90deg, #f8fafc, transparent);
+    }
+
+    .testimonial-wrapper::after {
+      right: 0;
+      background: linear-gradient(270deg, #f8fafc, transparent);
+    }
+
+    .testimonial-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: scrollTestimonials 35s linear infinite;
+    }
+
+    .testimonial-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollTestimonials {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .testimonial-card {
+      width: 360px;
+      flex: 0 0 auto;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+
+    .testimonial-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, #2563eb, #06b6d4, #7c3aed);
+    }
+
+    .quote-mark {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 64px;
+      line-height: 0.8;
+      color: #bfdbfe;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card p {
+      color: #334155;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+
+    .testimonial-user {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 16px;
+    }
+
+    .testimonial-user strong {
+      display: block;
+      color: #0f172a;
+      font-size: 15px;
+    }
+
+    .testimonial-user span {
+      display: block;
+      color: #64748b;
+      font-size: 14px;
+      margin-top: 3px;
     }
 
     .article-card {
@@ -428,6 +617,11 @@
       overflow: hidden;
       background:
         linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+
+    .article-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.13);
     }
 
     .article-type {
@@ -449,6 +643,13 @@
       align-items: center;
       background:
         linear-gradient(135deg, #ffffff, #eff6ff);
+    }
+
+    .contact-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 26px;
+      margin-top: 0;
+      color: #0f172a;
     }
 
     .contact-links a {
@@ -474,9 +675,12 @@
 
     @media (max-width: 960px) {
       .grid,
-      .grid-2,
       .contact-card {
         grid-template-columns: 1fr;
+      }
+
+      .testimonial-card {
+        width: 320px;
       }
     }
 
@@ -495,6 +699,10 @@
       .mission-box {
         padding: 24px;
       }
+
+      .demo-video iframe {
+        height: 170px;
+      }
     }
   </style>
 </head>
@@ -503,18 +711,18 @@
 
   <header>
     <div class="hero-content">
-      <div class="eyebrow">AI Products • GenAI Systems • Local Software</div>
+      <div class="eyebrow">AI Products • GenAI Systems • Automation Tools • Digital Products</div>
 
       <h1>Neelam AI Labs</h1>
 
       <h2>
-        Building <span class="gradient-text">practical AI software</span> that solves real problems,
+        Building <span class="gradient-text">practical AI products</span> that solve real problems,
         not just impressive demos.
       </h2>
 
       <p>
         I design and build AI products, RAG systems, agentic workflows, automation platforms,
-        and local-first tools that professionals, teams, and businesses can actually use.
+        and intelligent applications that professionals, teams, and businesses can actually use.
       </p>
 
       <div class="hero-buttons">
@@ -529,6 +737,7 @@
     <a href="#about">About</a>
     <a href="#expertise">Expertise</a>
     <a href="#software">Products</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#articles">Articles</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -550,17 +759,18 @@
         </p>
 
         <p>
-          Through <strong>Neelam AI Labs</strong>, I share practical tools, AI product experiments,
-          software utilities, and learning resources for professionals who want to use AI in real work,
-          not only in theory.
+          Through <strong>Neelam AI Labs</strong>, I share practical AI products, software utilities,
+          web applications, AI experiments, and learning resources for professionals who want to use AI
+          in real work, not only in theory.
         </p>
       </div>
 
       <div class="mission-box">
         <h3>Mission</h3>
         <p>
-          To make AI useful beyond buzzwords — by creating practical, trustworthy, and locally runnable
-          tools that help people work smarter, automate better, and solve meaningful problems with confidence.
+          To make AI useful beyond buzzwords — by creating practical, trustworthy, and accessible
+          products that help people work smarter, automate better, and solve meaningful problems
+          with confidence.
         </p>
       </div>
     </div>
@@ -579,78 +789,54 @@
           <div class="expertise-icon">🤖</div>
           <h3>Generative AI & LLMs</h3>
           <p>
-            Designing LLM-powered applications using prompt engineering, GPT APIs,
-            function calling, evaluation, cost optimization, and business-specific AI assistants.
+            Designing intelligent applications using large language models, prompt strategies,
+            evaluation patterns, function calling, and business-specific AI assistants.
           </p>
-          <span class="tag">GenAI</span>
-          <span class="tag">LLMs</span>
-          <span class="tag">Prompt Engineering</span>
-          <span class="tag">Evaluation</span>
         </div>
 
         <div class="card expertise-card">
           <div class="expertise-icon">🔎</div>
-          <h3>RAG & Vector Search</h3>
+          <h3>RAG & Knowledge Systems</h3>
           <p>
-            Building retrieval systems with embeddings, vector databases, hybrid search,
-            knowledge retrieval, access control, and enterprise-grade document intelligence.
+            Building retrieval-powered systems that help users search, understand, and interact
+            with enterprise knowledge, documents, and business content.
           </p>
-          <span class="tag">RAG</span>
-          <span class="tag">Embeddings</span>
-          <span class="tag">FAISS</span>
-          <span class="tag">Qdrant</span>
         </div>
 
         <div class="card expertise-card">
           <div class="expertise-icon">🧠</div>
           <h3>ML & AI Engineering</h3>
           <p>
-            Creating ML solutions across forecasting, NLP, image similarity, model pipelines,
-            data preparation, feature engineering, and predictive systems.
+            Creating AI and machine learning solutions that convert data into predictions,
+            insights, automation, and practical decision-support experiences.
           </p>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">NLP</span>
-          <span class="tag">Forecasting</span>
-          <span class="tag">Scikit-Learn</span>
         </div>
 
         <div class="card expertise-card">
           <div class="expertise-icon">🕸️</div>
           <h3>Agentic AI & Automation</h3>
           <p>
-            Designing AI agents and multi-step workflows that can plan, use tools,
-            call APIs, ask for human approval, and complete business processes safely.
+            Designing workflows where AI can plan, reason, call tools, interact with APIs,
+            ask for approval, and complete multi-step business processes safely.
           </p>
-          <span class="tag">AI Agents</span>
-          <span class="tag">LangGraph</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">Tool Calling</span>
         </div>
 
         <div class="card expertise-card">
           <div class="expertise-icon">⚙️</div>
           <h3>MLOps, LLMOps & DevOps</h3>
           <p>
-            Building production workflows with CI/CD, MLflow, model versioning,
-            observability, drift detection, rollback, monitoring, and release automation.
+            Building reliable production practices for deployment, monitoring, quality checks,
+            model lifecycle management, feedback loops, and continuous improvement.
           </p>
-          <span class="tag">MLOps</span>
-          <span class="tag">LLMOps</span>
-          <span class="tag">GitHub Actions</span>
-          <span class="tag">MLflow</span>
         </div>
 
         <div class="card expertise-card">
           <div class="expertise-icon">☁️</div>
           <h3>Cloud, Data & Security</h3>
           <p>
-            Architecting scalable AI and data platforms using AWS, Azure, Kubernetes,
-            Docker, Terraform, APIs, databases, RBAC/IAM, and security-by-design practices.
+            Architecting scalable AI platforms with strong foundations across cloud,
+            data engineering, APIs, infrastructure, access control, and security-by-design.
           </p>
-          <span class="tag">AWS</span>
-          <span class="tag">Azure</span>
-          <span class="tag">Kubernetes</span>
-          <span class="tag">DevSecOps</span>
         </div>
       </div>
     </div>
@@ -658,9 +844,9 @@
 
   <section id="software">
     <div class="container">
-      <h2>Software Products</h2>
+      <h2>Products & Tools</h2>
       <p class="section-subtitle">
-        Practical AI products and local-first tools designed for professionals, job seekers,
+        Practical AI products and software tools designed for professionals, job seekers,
         creators, teams, and businesses.
       </p>
 
@@ -668,58 +854,253 @@
 
         <div class="card product-card">
           <span class="product-status">Coming Soon</span>
+
           <h3>AIRDops</h3>
           <p class="product-meta">
-            AI readiness and data quality tool for documents, datasets, and RAG use cases.
+            AI readiness and data quality product for documents, datasets, and RAG use cases.
           </p>
+
           <ul class="product-features">
             <li>Scan documents for AI readiness</li>
             <li>Generate quality and trust signals</li>
             <li>Identify gaps before building RAG</li>
             <li>Export readiness reports</li>
           </ul>
-          <div class="download-row">
-            <a href="#" class="button dark-button">Windows</a>
-            <a href="#" class="button ghost-button">Mac</a>
-            <a href="#" class="button ghost-button">Linux</a>
+
+          <div class="demo-video">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_AIRDOPS_VIDEO_ID"
+              title="AIRDops Demo Video"
+              allowfullscreen>
+            </iframe>
+            <div class="demo-caption">
+              <strong>Watch Demo</strong>
+              <a href="#" class="button youtube-button">▶ YouTube</a>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <details class="download-dropdown">
+              <summary class="button dark-button">Download ▾</summary>
+              <div class="download-menu">
+                <a href="#">Windows <span>.exe</span></a>
+                <a href="#">Mac <span>.dmg</span></a>
+                <a href="#">Linux <span>.AppImage</span></a>
+              </div>
+            </details>
           </div>
         </div>
 
         <div class="card product-card">
           <span class="product-status">Coming Soon</span>
+
           <h3>ResuWin</h3>
           <p class="product-meta">
             AI-powered resume evaluator and job-match assistant for professionals.
           </p>
+
           <ul class="product-features">
             <li>Compare resume with job description</li>
-            <li>Generate match score and gaps</li>
-            <li>Suggest stronger positioning</li>
+            <li>Generate match score and skill gaps</li>
+            <li>Suggest stronger profile positioning</li>
             <li>Support interview preparation</li>
           </ul>
-          <div class="download-row">
-            <a href="#" class="button dark-button">Windows</a>
-            <a href="#" class="button ghost-button">Mac</a>
-            <a href="#" class="button ghost-button">Linux</a>
+
+          <div class="demo-video">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_RESUWIN_VIDEO_ID"
+              title="ResuWin Demo Video"
+              allowfullscreen>
+            </iframe>
+            <div class="demo-caption">
+              <strong>Watch Demo</strong>
+              <a href="#" class="button youtube-button">▶ YouTube</a>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <details class="download-dropdown">
+              <summary class="button dark-button">Download ▾</summary>
+              <div class="download-menu">
+                <a href="#">Windows <span>.exe</span></a>
+                <a href="#">Mac <span>.dmg</span></a>
+                <a href="#">Linux <span>.AppImage</span></a>
+              </div>
+            </details>
           </div>
         </div>
 
         <div class="card product-card">
           <span class="product-status">Coming Soon</span>
+
           <h3>Conversation Tool</h3>
           <p class="product-meta">
-            A local conversation intelligence tool for prompts, chat analysis, and AI workflows.
+            Conversation intelligence product for prompts, chat analysis, and AI workflow improvement.
           </p>
+
           <ul class="product-features">
             <li>Organize AI conversations</li>
             <li>Extract actions and insights</li>
             <li>Improve prompts and responses</li>
             <li>Create reusable knowledge notes</li>
           </ul>
-          <div class="download-row">
-            <a href="#" class="button dark-button">Windows</a>
-            <a href="#" class="button ghost-button">Mac</a>
-            <a href="#" class="button ghost-button">Linux</a>
+
+          <div class="demo-video">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_CONVERSATION_TOOL_VIDEO_ID"
+              title="Conversation Tool Demo Video"
+              allowfullscreen>
+            </iframe>
+            <div class="demo-caption">
+              <strong>Watch Demo</strong>
+              <a href="#" class="button youtube-button">▶ YouTube</a>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <details class="download-dropdown">
+              <summary class="button dark-button">Download ▾</summary>
+              <div class="download-menu">
+                <a href="#">Windows <span>.exe</span></a>
+                <a href="#">Mac <span>.dmg</span></a>
+                <a href="#">Linux <span>.AppImage</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonial-section">
+    <div class="container">
+      <h2>User Testimonials</h2>
+      <p class="section-subtitle">
+        Feedback from users and professionals exploring practical AI products from Neelam AI Labs.
+      </p>
+    </div>
+
+    <div class="testimonial-wrapper">
+      <div class="testimonial-track">
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            AIRDops made the idea of AI-ready data much easier to understand.
+            It clearly shows what needs improvement before using documents in a RAG system.
+          </p>
+          <div class="testimonial-user">
+            <strong>Ananya Sharma</strong>
+            <span>Product Manager</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            ResuWin gives focused and practical resume feedback. The job-match view
+            is helpful because it shows gaps instead of giving generic suggestions.
+          </p>
+          <div class="testimonial-user">
+            <strong>Rohan Mehta</strong>
+            <span>Senior Software Engineer</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            The Conversation Tool solves a real problem. It helps convert long AI chats
+            into actions, notes, and reusable ideas without losing context.
+          </p>
+          <div class="testimonial-user">
+            <strong>Priya Nair</strong>
+            <span>AI Consultant</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            I like that the products are designed around real workflows.
+            They feel useful for professionals who want AI tools that are simple and actionable.
+          </p>
+          <div class="testimonial-user">
+            <strong>Vikram Sethi</strong>
+            <span>Technology Lead</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            The product thinking is very clear. Instead of only showing AI capability,
+            the tools focus on helping users complete practical tasks.
+          </p>
+          <div class="testimonial-user">
+            <strong>Meera Kapoor</strong>
+            <span>Digital Transformation Manager</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            AIRDops made the idea of AI-ready data much easier to understand.
+            It clearly shows what needs improvement before using documents in a RAG system.
+          </p>
+          <div class="testimonial-user">
+            <strong>Ananya Sharma</strong>
+            <span>Product Manager</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            ResuWin gives focused and practical resume feedback. The job-match view
+            is helpful because it shows gaps instead of giving generic suggestions.
+          </p>
+          <div class="testimonial-user">
+            <strong>Rohan Mehta</strong>
+            <span>Senior Software Engineer</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            The Conversation Tool solves a real problem. It helps convert long AI chats
+            into actions, notes, and reusable ideas without losing context.
+          </p>
+          <div class="testimonial-user">
+            <strong>Priya Nair</strong>
+            <span>AI Consultant</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            I like that the products are designed around real workflows.
+            They feel useful for professionals who want AI tools that are simple and actionable.
+          </p>
+          <div class="testimonial-user">
+            <strong>Vikram Sethi</strong>
+            <span>Technology Lead</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            The product thinking is very clear. Instead of only showing AI capability,
+            the tools focus on helping users complete practical tasks.
+          </p>
+          <div class="testimonial-user">
+            <strong>Meera Kapoor</strong>
+            <span>Digital Transformation Manager</span>
           </div>
         </div>
 
@@ -784,7 +1165,7 @@
           <h3>Let’s build useful AI.</h3>
           <p>
             Reach out for AI product ideas, collaboration, consulting, architecture discussions,
-            software development, or practical GenAI implementation.
+            product demos, software development, or practical GenAI implementation.
           </p>
         </div>
 
@@ -795,8 +1176,8 @@
           <a href="https://medium.com/@neelamyadav10053" target="_blank">
             Medium: @neelamyadav10053
           </a>
-          <a href="https://github.com/neelam-yadav" target="_blank">
-            GitHub: neelam-yadav
+          <a href="https://github.com/neelam53yadav" target="_blank">
+            GitHub: neelam53yadav
           </a>
         </div>
       </div>
@@ -805,7 +1186,7 @@
 
   <footer>
     <p>© 2026 Neelam AI Labs. All rights reserved.</p>
-    <p>Practical AI products, local software, and GenAI thinking.</p>
+    <p>Practical AI products, GenAI tools, automation systems, and digital products.</p>
   </footer>
 
 </body>
