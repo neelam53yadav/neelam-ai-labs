@@ -153,6 +153,7 @@
       border: 1px solid transparent;
       cursor: pointer;
       white-space: nowrap;
+      font-family: inherit;
     }
 
     .primary-button {
@@ -323,32 +324,20 @@
     }
 
     .expertise-card {
+      --accent: #2563eb;
       position: relative;
       overflow: hidden;
       min-height: 100%;
-      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.96));
       transform: translateY(0) scale(1);
+      border-top: 5px solid var(--accent);
     }
 
     .expertise-card:hover {
       transform: translateY(-12px) scale(1.035);
       box-shadow: 0 28px 70px rgba(15, 23, 42, 0.16);
-      border-color: #bfdbfe;
       z-index: 3;
-    }
-
-    .expertise-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
-      opacity: 0;
-      transition: 0.25s ease;
-    }
-
-    .expertise-card:hover::before {
-      opacity: 1;
     }
 
     .expertise-card h3,
@@ -361,16 +350,22 @@
       letter-spacing: -0.3px;
     }
 
+    .expertise-card h3 {
+      color: var(--accent);
+    }
+
     .expertise-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 25px;
-      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      background: color-mix(in srgb, var(--accent) 12%, white);
+      color: var(--accent);
       margin-bottom: 18px;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, white);
     }
 
     .product-card {
@@ -379,7 +374,12 @@
       min-height: 100%;
       display: flex;
       flex-direction: column;
-      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      background: white;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.14);
     }
 
     .product-card::before {
@@ -391,6 +391,14 @@
       background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
     }
 
+    .product-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
     .product-status {
       display: inline-flex;
       width: fit-content;
@@ -400,7 +408,6 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 900;
-      margin-bottom: 14px;
       border: 1px solid #fed7aa;
     }
 
@@ -431,34 +438,85 @@
       top: 0;
     }
 
-    .demo-video {
+    .product-preview {
       position: relative;
       overflow: hidden;
-      border-radius: 18px;
-      background: #0f172a;
-      margin: 18px 0 20px;
-      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      margin: 18px 0 22px;
+      border: 1px solid #e2e8f0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(37,99,235,0.24), transparent 32%),
+        radial-gradient(circle at 85% 20%, rgba(124,58,237,0.18), transparent 28%),
+        linear-gradient(135deg, #0f172a, #111827);
+      min-height: 210px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
 
-    .demo-video iframe {
-      width: 100%;
-      height: 190px;
-      display: block;
-      border: 0;
-    }
-
-    .demo-caption {
+    .preview-topbar {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px;
-      background: #ffffff;
+      gap: 7px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
     }
 
-    .demo-caption strong {
-      color: #0f172a;
-      font-size: 14px;
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .preview-content {
+      padding: 18px;
+      color: white;
+    }
+
+    .preview-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .metric {
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 18px;
+      color: #93c5fd;
+    }
+
+    .metric span {
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+
+    .play-overlay {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #dc2626;
+      color: white;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 900;
+      font-size: 13px;
+      box-shadow: 0 15px 30px rgba(220,38,38,0.30);
     }
 
     .product-actions {
@@ -467,33 +525,37 @@
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
+      position: relative;
     }
 
     .download-dropdown {
       position: relative;
       display: inline-block;
-      z-index: 5;
+      z-index: 30;
     }
 
-    .download-dropdown summary {
-      list-style: none;
-    }
-
-    .download-dropdown summary::-webkit-details-marker {
-      display: none;
+    .download-trigger::after {
+      content: "▾";
+      font-size: 12px;
+      margin-left: 4px;
     }
 
     .download-menu {
+      display: none;
       position: absolute;
       left: 0;
       top: calc(100% + 8px);
-      width: 220px;
+      width: 230px;
       background: white;
       border: 1px solid #e5e7eb;
       border-radius: 16px;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
       padding: 8px;
-      z-index: 20;
+      z-index: 99;
+    }
+
+    .download-dropdown.open .download-menu {
+      display: block;
     }
 
     .download-menu a {
@@ -516,39 +578,40 @@
       overflow: hidden;
     }
 
-    .testimonial-wrapper {
+    .testimonial-carousel {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 22px;
       overflow: hidden;
-      width: 100%;
       position: relative;
-      margin-top: 10px;
     }
 
-    .testimonial-wrapper::before,
-    .testimonial-wrapper::after {
+    .testimonial-carousel::before,
+    .testimonial-carousel::after {
       content: "";
       position: absolute;
       top: 0;
-      width: 80px;
+      width: 70px;
       height: 100%;
       z-index: 2;
       pointer-events: none;
     }
 
-    .testimonial-wrapper::before {
-      left: 0;
+    .testimonial-carousel::before {
+      left: 22px;
       background: linear-gradient(90deg, #f8fafc, transparent);
     }
 
-    .testimonial-wrapper::after {
-      right: 0;
+    .testimonial-carousel::after {
+      right: 22px;
       background: linear-gradient(270deg, #f8fafc, transparent);
     }
 
     .testimonial-track {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       width: max-content;
-      animation: scrollTestimonials 35s linear infinite;
+      animation: scrollTestimonials 38s linear infinite;
     }
 
     .testimonial-track:hover {
@@ -565,7 +628,7 @@
     }
 
     .testimonial-card {
-      width: 360px;
+      width: 340px;
       flex: 0 0 auto;
       position: relative;
       overflow: hidden;
@@ -582,7 +645,7 @@
 
     .quote-mark {
       font-family: "Space Grotesk", sans-serif;
-      font-size: 64px;
+      font-size: 58px;
       line-height: 0.8;
       color: #bfdbfe;
       margin-bottom: 10px;
@@ -590,7 +653,7 @@
 
     .testimonial-card p {
       color: #334155;
-      font-size: 16px;
+      font-size: 15px;
       margin-bottom: 22px;
     }
 
@@ -680,7 +743,7 @@
       }
 
       .testimonial-card {
-        width: 320px;
+        width: 310px;
       }
     }
 
@@ -700,8 +763,20 @@
         padding: 24px;
       }
 
-      .demo-video iframe {
-        height: 170px;
+      .product-preview {
+        min-height: 190px;
+      }
+
+      .testimonial-carousel {
+        padding: 0 16px;
+      }
+
+      .testimonial-carousel::before {
+        left: 16px;
+      }
+
+      .testimonial-carousel::after {
+        right: 16px;
       }
     }
   </style>
@@ -785,7 +860,7 @@
       </p>
 
       <div class="grid">
-        <div class="card expertise-card">
+        <div class="card expertise-card" style="--accent:#2563eb;">
           <div class="expertise-icon">🤖</div>
           <h3>Generative AI & LLMs</h3>
           <p>
@@ -794,7 +869,7 @@
           </p>
         </div>
 
-        <div class="card expertise-card">
+        <div class="card expertise-card" style="--accent:#0891b2;">
           <div class="expertise-icon">🔎</div>
           <h3>RAG & Knowledge Systems</h3>
           <p>
@@ -803,7 +878,7 @@
           </p>
         </div>
 
-        <div class="card expertise-card">
+        <div class="card expertise-card" style="--accent:#7c3aed;">
           <div class="expertise-icon">🧠</div>
           <h3>ML & AI Engineering</h3>
           <p>
@@ -812,7 +887,7 @@
           </p>
         </div>
 
-        <div class="card expertise-card">
+        <div class="card expertise-card" style="--accent:#db2777;">
           <div class="expertise-icon">🕸️</div>
           <h3>Agentic AI & Automation</h3>
           <p>
@@ -821,7 +896,7 @@
           </p>
         </div>
 
-        <div class="card expertise-card">
+        <div class="card expertise-card" style="--accent:#ea580c;">
           <div class="expertise-icon">⚙️</div>
           <h3>MLOps, LLMOps & DevOps</h3>
           <p>
@@ -830,7 +905,7 @@
           </p>
         </div>
 
-        <div class="card expertise-card">
+        <div class="card expertise-card" style="--accent:#059669;">
           <div class="expertise-icon">☁️</div>
           <h3>Cloud, Data & Security</h3>
           <p>
@@ -853,9 +928,11 @@
       <div class="grid">
 
         <div class="card product-card">
-          <span class="product-status">Coming Soon</span>
+          <div class="product-header">
+            <h3>AIRDops</h3>
+            <span class="product-status">Coming Soon</span>
+          </div>
 
-          <h3>AIRDops</h3>
           <p class="product-meta">
             AI readiness and data quality product for documents, datasets, and RAG use cases.
           </p>
@@ -867,34 +944,50 @@
             <li>Export readiness reports</li>
           </ul>
 
-          <div class="demo-video">
-            <iframe
-              src="https://www.youtube.com/embed/YOUR_AIRDOPS_VIDEO_ID"
-              title="AIRDops Demo Video"
-              allowfullscreen>
-            </iframe>
-            <div class="demo-caption">
-              <strong>Watch Demo</strong>
-              <a href="#" class="button youtube-button">▶ YouTube</a>
+          <a href="https://www.youtube.com/watch?v=YOUR_AIRDOPS_VIDEO_ID" target="_blank" class="product-preview">
+            <div class="preview-topbar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
             </div>
-          </div>
+            <div class="preview-content">
+              <div class="preview-title">AI Readiness Dashboard</div>
+              <div class="metric-row">
+                <div class="metric">
+                  <strong>86%</strong>
+                  <span>Readiness Score</span>
+                </div>
+                <div class="metric">
+                  <strong>12</strong>
+                  <span>Issues Found</span>
+                </div>
+              </div>
+            </div>
+            <span class="play-overlay">▶ Watch Demo</span>
+          </a>
 
           <div class="product-actions">
-            <details class="download-dropdown">
-              <summary class="button dark-button">Download ▾</summary>
+            <div class="download-dropdown">
+              <button class="button dark-button download-trigger" type="button">Download</button>
               <div class="download-menu">
                 <a href="#">Windows <span>.exe</span></a>
                 <a href="#">Mac <span>.dmg</span></a>
                 <a href="#">Linux <span>.AppImage</span></a>
               </div>
-            </details>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=YOUR_AIRDOPS_VIDEO_ID" target="_blank" class="button youtube-button">
+              ▶ YouTube Demo
+            </a>
           </div>
         </div>
 
         <div class="card product-card">
-          <span class="product-status">Coming Soon</span>
+          <div class="product-header">
+            <h3>ResuWin</h3>
+            <span class="product-status">Coming Soon</span>
+          </div>
 
-          <h3>ResuWin</h3>
           <p class="product-meta">
             AI-powered resume evaluator and job-match assistant for professionals.
           </p>
@@ -906,34 +999,50 @@
             <li>Support interview preparation</li>
           </ul>
 
-          <div class="demo-video">
-            <iframe
-              src="https://www.youtube.com/embed/YOUR_RESUWIN_VIDEO_ID"
-              title="ResuWin Demo Video"
-              allowfullscreen>
-            </iframe>
-            <div class="demo-caption">
-              <strong>Watch Demo</strong>
-              <a href="#" class="button youtube-button">▶ YouTube</a>
+          <a href="https://www.youtube.com/watch?v=YOUR_RESUWIN_VIDEO_ID" target="_blank" class="product-preview">
+            <div class="preview-topbar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
             </div>
-          </div>
+            <div class="preview-content">
+              <div class="preview-title">Resume Match Intelligence</div>
+              <div class="metric-row">
+                <div class="metric">
+                  <strong>91%</strong>
+                  <span>JD Match</span>
+                </div>
+                <div class="metric">
+                  <strong>7</strong>
+                  <span>Skill Gaps</span>
+                </div>
+              </div>
+            </div>
+            <span class="play-overlay">▶ Watch Demo</span>
+          </a>
 
           <div class="product-actions">
-            <details class="download-dropdown">
-              <summary class="button dark-button">Download ▾</summary>
+            <div class="download-dropdown">
+              <button class="button dark-button download-trigger" type="button">Download</button>
               <div class="download-menu">
                 <a href="#">Windows <span>.exe</span></a>
                 <a href="#">Mac <span>.dmg</span></a>
                 <a href="#">Linux <span>.AppImage</span></a>
               </div>
-            </details>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=YOUR_RESUWIN_VIDEO_ID" target="_blank" class="button youtube-button">
+              ▶ YouTube Demo
+            </a>
           </div>
         </div>
 
         <div class="card product-card">
-          <span class="product-status">Coming Soon</span>
+          <div class="product-header">
+            <h3>Conversation Tool</h3>
+            <span class="product-status">Coming Soon</span>
+          </div>
 
-          <h3>Conversation Tool</h3>
           <p class="product-meta">
             Conversation intelligence product for prompts, chat analysis, and AI workflow improvement.
           </p>
@@ -945,27 +1054,41 @@
             <li>Create reusable knowledge notes</li>
           </ul>
 
-          <div class="demo-video">
-            <iframe
-              src="https://www.youtube.com/embed/YOUR_CONVERSATION_TOOL_VIDEO_ID"
-              title="Conversation Tool Demo Video"
-              allowfullscreen>
-            </iframe>
-            <div class="demo-caption">
-              <strong>Watch Demo</strong>
-              <a href="#" class="button youtube-button">▶ YouTube</a>
+          <a href="https://www.youtube.com/watch?v=YOUR_CONVERSATION_TOOL_VIDEO_ID" target="_blank" class="product-preview">
+            <div class="preview-topbar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
             </div>
-          </div>
+            <div class="preview-content">
+              <div class="preview-title">Conversation Intelligence</div>
+              <div class="metric-row">
+                <div class="metric">
+                  <strong>24</strong>
+                  <span>Actions Extracted</span>
+                </div>
+                <div class="metric">
+                  <strong>8</strong>
+                  <span>Reusable Notes</span>
+                </div>
+              </div>
+            </div>
+            <span class="play-overlay">▶ Watch Demo</span>
+          </a>
 
           <div class="product-actions">
-            <details class="download-dropdown">
-              <summary class="button dark-button">Download ▾</summary>
+            <div class="download-dropdown">
+              <button class="button dark-button download-trigger" type="button">Download</button>
               <div class="download-menu">
                 <a href="#">Windows <span>.exe</span></a>
                 <a href="#">Mac <span>.dmg</span></a>
                 <a href="#">Linux <span>.AppImage</span></a>
               </div>
-            </details>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=YOUR_CONVERSATION_TOOL_VIDEO_ID" target="_blank" class="button youtube-button">
+              ▶ YouTube Demo
+            </a>
           </div>
         </div>
 
@@ -981,7 +1104,7 @@
       </p>
     </div>
 
-    <div class="testimonial-wrapper">
+    <div class="testimonial-carousel">
       <div class="testimonial-track">
 
         <div class="card testimonial-card">
@@ -1188,6 +1311,45 @@
     <p>© 2026 Neelam AI Labs. All rights reserved.</p>
     <p>Practical AI products, GenAI tools, automation systems, and digital products.</p>
   </footer>
+
+  <script>
+    const dropdowns = document.querySelectorAll(".download-dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const trigger = dropdown.querySelector(".download-trigger");
+
+      trigger.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        dropdowns.forEach((item) => {
+          if (item !== dropdown) {
+            item.classList.remove("open");
+          }
+        });
+
+        dropdown.classList.toggle("open");
+      });
+    });
+
+    dropdown.querySelector(".download-menu").addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+  });
+
+    document.addEventListener("click", () => {
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("open");
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        dropdowns.forEach((dropdown) => {
+          dropdown.classList.remove("open");
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
