@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -193,17 +193,6 @@
       transform: translateY(-2px);
     }
 
-    .youtube-button {
-      background: #dc2626;
-      color: white;
-      box-shadow: 0 12px 24px rgba(220, 38, 38, 0.22);
-    }
-
-    .youtube-button:hover {
-      background: #b91c1c;
-      transform: translateY(-2px);
-    }
-
     nav {
       background: rgba(255,255,255,0.88);
       padding: 14px 20px;
@@ -265,9 +254,84 @@
 
     .about-shell {
       display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
+      grid-template-columns: 0.78fr 1.25fr;
       gap: 24px;
       align-items: stretch;
+    }
+
+    .profile-card {
+      position: relative;
+      overflow: hidden;
+      padding: 26px;
+      background:
+        linear-gradient(135deg, #ffffff, #eff6ff);
+    }
+
+    .profile-frame {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      min-height: 430px;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(37,99,235,0.22), transparent 28%),
+        radial-gradient(circle at 75% 15%, rgba(124,58,237,0.20), transparent 30%),
+        linear-gradient(135deg, #e0f2fe, #f8fafc);
+      border: 1px solid #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 26px;
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+
+    .profile-placeholder {
+      position: relative;
+      z-index: 1;
+      color: #1e3a8a;
+    }
+
+    .profile-placeholder .avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #bfdbfe;
+      box-shadow: 0 18px 44px rgba(37, 99, 235, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      margin: 0 auto 18px;
+    }
+
+    .profile-placeholder strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 24px;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .profile-placeholder span {
+      display: block;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .profile-note {
+      margin-top: 16px;
+      color: #64748b;
+      font-size: 13px;
+      text-align: center;
     }
 
     .about-card {
@@ -301,16 +365,49 @@
       margin-bottom: 20px;
     }
 
-    .strong-line {
+    .signature-statement {
       position: relative;
       z-index: 1;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.12;
+      margin: 0 0 26px;
+      padding: 28px 30px;
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 58, 138, 0.92)),
+        radial-gradient(circle at top right, rgba(34,211,238,0.25), transparent 30%);
+      color: white;
+      box-shadow: 0 24px 58px rgba(15, 23, 42, 0.22);
+    }
+
+    .signature-statement::before {
+      content: "“";
+      position: absolute;
+      top: -22px;
+      left: 18px;
+      font-family: "Playfair Display", serif;
+      font-size: 96px;
+      line-height: 1;
+      color: rgba(255,255,255,0.14);
+    }
+
+    .signature-statement p {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.08;
       letter-spacing: -1.2px;
-      color: #0f172a;
-      margin: 0 0 22px;
+      color: white;
       max-width: 900px;
+    }
+
+    .signature-statement span {
+      display: block;
+      margin-top: 16px;
+      font-family: "Inter", sans-serif;
+      color: #bfdbfe;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
     }
 
     .about-card p {
@@ -351,7 +448,7 @@
       border-radius: 26px;
       padding: 34px;
       box-shadow: 0 22px 55px rgba(15, 23, 42, 0.22);
-      min-height: 100%;
+      margin-top: 24px;
     }
 
     .mission-label {
@@ -378,6 +475,7 @@
       color: #dbeafe;
       margin: 0;
       font-size: 16px;
+      max-width: 850px;
     }
 
     .mission-box::after {
@@ -451,13 +549,16 @@
     }
 
     .product-card {
+      --product-accent: #2563eb;
       position: relative;
       overflow: visible;
       min-height: 100%;
       display: flex;
       flex-direction: column;
-      background: white;
+      background:
+        linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--product-accent) 8%, #ffffff));
       padding: 30px;
+      border-top: 5px solid var(--product-accent);
     }
 
     .product-card:hover {
@@ -465,13 +566,8 @@
       box-shadow: 0 26px 60px rgba(15, 23, 42, 0.14);
     }
 
-    .product-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      border-radius: 24px 24px 0 0;
-      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
+    .product-card h3 {
+      color: var(--product-accent);
     }
 
     .product-meta {
@@ -509,7 +605,7 @@
       border: 1px solid #e2e8f0;
       min-height: 230px;
       background:
-        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.38), transparent 30%),
+        radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--product-accent) 38%, transparent), transparent 30%),
         radial-gradient(circle at 80% 15%, rgba(124, 58, 237, 0.32), transparent 30%),
         linear-gradient(135deg, #0f172a, #111827);
       display: block;
@@ -602,7 +698,7 @@
 
     .download-dropdown {
       position: relative;
-      flex: 1;
+      width: 100%;
       z-index: 30;
     }
 
@@ -758,18 +854,24 @@
     }
 
     .article-card {
+      --article-accent: #2563eb;
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(180deg, #ffffff, #f8fafc);
+        linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--article-accent) 7%, #ffffff));
       display: flex;
       flex-direction: column;
       min-height: 100%;
+      border-top: 5px solid var(--article-accent);
     }
 
     .article-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 24px 60px rgba(15, 23, 42, 0.13);
+    }
+
+    .article-card h3 {
+      color: var(--article-accent);
     }
 
     .article-card p {
@@ -904,8 +1006,13 @@
 
       .card,
       .about-card,
-      .mission-box {
+      .mission-box,
+      .profile-card {
         padding: 24px;
+      }
+
+      .profile-frame {
+        min-height: 320px;
       }
 
       .product-preview {
@@ -914,15 +1021,6 @@
 
       .preview-metrics {
         grid-template-columns: 1fr;
-      }
-
-      .product-actions {
-        flex-wrap: wrap;
-      }
-
-      .product-actions .button,
-      .download-dropdown {
-        flex: 1 1 100%;
       }
 
       .testimonial-carousel {
@@ -979,12 +1077,30 @@
       <h2>About Me</h2>
 
       <div class="about-shell">
+        <div class="card profile-card">
+          <div class="profile-frame">
+            <!-- Replace profile.jpg with your actual image file name after uploading it to the same repo -->
+            <img src="profile.jpg" alt="Neelam Yadav profile photo">
+            <div class="profile-placeholder">
+              <div class="avatar">👩‍💻</div>
+              <strong>Neelam Yadav</strong>
+              <span>AI Builder • Product Thinker • Enterprise Architect</span>
+            </div>
+          </div>
+          <div class="profile-note">
+            Upload your image as <strong>profile.jpg</strong> in the same GitHub repo to show your photo here.
+          </div>
+        </div>
+
         <div class="card about-card">
           <div class="about-kicker">Builder mindset • Enterprise thinking • Practical AI</div>
 
-          <p class="strong-line">
-            I turn complex AI ideas into products people can understand, trust, and use.
-          </p>
+          <div class="signature-statement">
+            <p>
+              I turn complex AI ideas into products people can understand, trust, and use.
+            </p>
+            <span>Practical AI, designed for real work</span>
+          </div>
 
           <p>
             I work across Generative AI, machine learning, cloud platforms, software engineering,
@@ -1009,16 +1125,16 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="mission-box">
-          <div class="mission-label">Mission</div>
-          <h3>Make AI useful beyond buzzwords.</h3>
-          <p>
-            Neelam AI Labs exists to create practical, trustworthy, and accessible AI products
-            that help people automate better, make stronger decisions, and solve meaningful
-            problems with confidence.
-          </p>
-        </div>
+      <div class="mission-box">
+        <div class="mission-label">Mission</div>
+        <h3>Make AI useful beyond buzzwords.</h3>
+        <p>
+          Neelam AI Labs exists to create practical, trustworthy, and accessible AI products
+          that help people automate better, make stronger decisions, and solve meaningful
+          problems with confidence.
+        </p>
       </div>
     </div>
   </section>
@@ -1099,7 +1215,7 @@
 
       <div class="product-grid">
 
-        <div class="card product-card">
+        <div class="card product-card" style="--product-accent:#2563eb;">
           <h3>AIRDOps</h3>
 
           <p class="product-meta">
@@ -1146,14 +1262,10 @@
                 <a href="#">Linux <span>.AppImage</span></a>
               </div>
             </div>
-
-            <a href="https://www.youtube.com/watch?v=YOUR_AIRDOPS_VIDEO_ID" target="_blank" class="button youtube-button">
-              ▶ Demo
-            </a>
           </div>
         </div>
 
-        <div class="card product-card">
+        <div class="card product-card" style="--product-accent:#7c3aed;">
           <h3>ResuWin</h3>
 
           <p class="product-meta">
@@ -1200,10 +1312,6 @@
                 <a href="#">Linux <span>.AppImage</span></a>
               </div>
             </div>
-
-            <a href="https://www.youtube.com/watch?v=YOUR_RESUWIN_VIDEO_ID" target="_blank" class="button youtube-button">
-              ▶ Demo
-            </a>
           </div>
         </div>
 
@@ -1318,54 +1426,6 @@
           </div>
         </div>
 
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            The product thinking is very clear. Instead of only showing AI capability,
-            the tools focus on helping users complete practical tasks.
-          </p>
-          <div class="testimonial-user">
-            <strong>Sophie Laurent</strong>
-            <span>Digital Transformation Lead, France</span>
-          </div>
-        </div>
-
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            I like that the products are designed around real workflows.
-            They feel useful for professionals who want AI tools that are simple and actionable.
-          </p>
-          <div class="testimonial-user">
-            <strong>Daniel Weber</strong>
-            <span>Technology Consultant, Germany</span>
-          </div>
-        </div>
-
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            AIRDOps feels like the missing bridge between raw enterprise content and usable AI systems.
-            The trust-score approach makes the platform easier to explain to business teams.
-          </p>
-          <div class="testimonial-user">
-            <strong>Priya Menon</strong>
-            <span>AI Program Manager, Singapore</span>
-          </div>
-        </div>
-
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            ResuWin is practical for job seekers because it does not just rewrite a resume.
-            It shows whether the profile is aligned to the target role.
-          </p>
-          <div class="testimonial-user">
-            <strong>Oliver Bennett</strong>
-            <span>Career Coach, United Kingdom</span>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -1380,7 +1440,7 @@
 
       <div class="article-grid">
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#2563eb;">
           <h3>Agentic AI Design Patterns that 90% of Teams Use</h3>
           <p>
             A practical walkthrough of common agentic AI patterns including tool use,
@@ -1391,7 +1451,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#0891b2;">
           <h3>Enterprise RAG on AWS: From Scattered Docs to Trusted Answers at TB-Scale</h3>
           <p>
             A production-style enterprise RAG architecture using AWS services, validation,
@@ -1402,7 +1462,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#7c3aed;">
           <h3>From Zero to RAG Chatbot in 10 Minutes (LangChain + Qdrant + Mistral + FastAPI + Airflow)</h3>
           <p>
             A hands-on build showing ingestion, embeddings, Qdrant vector storage,
@@ -1413,7 +1473,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#db2777;">
           <h3>Agentic AI Explained: How It Works and Real-World Uses</h3>
           <p>
             A beginner-friendly explanation of agentic AI, how it plans, uses tools,
@@ -1424,7 +1484,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#ea580c;">
           <h3>Getting Started with MLOps: A Practical Guide</h3>
           <p>
             A practical guide to ML lifecycle, deployment, monitoring, reproducibility,
@@ -1435,7 +1495,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#059669;">
           <h3>RAG vs. CAG: Choosing the Right AI Approach</h3>
           <p>
             A comparison of Retrieval-Augmented Generation and Cache-Augmented Generation,
@@ -1446,7 +1506,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#0f766e;">
           <h3>Building an Intelligent Chatbot with Langchain and Vector Databases</h3>
           <p>
             A practical introduction to building document-aware chatbots with LangChain,
@@ -1457,7 +1517,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#9333ea;">
           <h3>Decoding the AI Evolution: Langchain and Vector Databases</h3>
           <p>
             A conceptual guide to how LangChain and vector databases help LLMs work
@@ -1468,7 +1528,7 @@
           </a>
         </div>
 
-        <div class="card article-card">
+        <div class="card article-card" style="--article-accent:#be123c;">
           <h3>Don’t Default to RAG: Think Before You Choose</h3>
           <p>
             A decision-focused article on when RAG is useful, when deterministic systems are safer,
