@@ -446,7 +446,7 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 28px;
     }
 
@@ -457,7 +457,7 @@
       display: flex;
       flex-direction: column;
       background: white;
-      padding: 26px;
+      padding: 30px;
     }
 
     .product-card:hover {
@@ -507,59 +507,81 @@
       border-radius: 20px;
       margin: 18px 0 22px;
       border: 1px solid #e2e8f0;
-      min-height: 210px;
-      background: #0f172a;
+      min-height: 230px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.38), transparent 30%),
+        radial-gradient(circle at 80% 15%, rgba(124, 58, 237, 0.32), transparent 30%),
+        linear-gradient(135deg, #0f172a, #111827);
       display: block;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
 
-    .product-preview img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
+    .preview-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .preview-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .preview-body {
+      padding: 22px;
+      color: white;
+    }
+
+    .preview-body h4 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 22px;
+      margin: 0 0 18px;
+      color: white;
+    }
+
+    .preview-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .preview-metric {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .preview-metric strong {
       display: block;
-      opacity: 0.86;
-      transition: 0.25s ease;
+      font-size: 22px;
+      color: #93c5fd;
+      margin-bottom: 2px;
     }
 
-    .product-preview:hover img {
-      transform: scale(1.04);
-      opacity: 0.72;
-    }
-
-    .preview-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(15,23,42,0.18), rgba(15,23,42,0.72));
+    .preview-metric span {
+      color: #cbd5e1;
+      font-size: 12px;
     }
 
     .play-pill {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 62px;
-      height: 62px;
-      border-radius: 999px;
-      display: flex;
+      right: 16px;
+      bottom: 16px;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
       background: #dc2626;
       color: white;
-      font-size: 24px;
+      padding: 10px 14px;
+      font-weight: 900;
+      font-size: 13px;
       box-shadow: 0 18px 38px rgba(220,38,38,0.38);
-    }
-
-    .preview-title {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      color: white;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 18px;
-      font-weight: 700;
     }
 
     .product-actions {
@@ -665,7 +687,7 @@
       display: flex;
       gap: 22px;
       width: max-content;
-      animation: scrollTestimonials 38s linear infinite;
+      animation: scrollTestimonials 42s linear infinite;
     }
 
     .testimonial-track:hover {
@@ -729,16 +751,31 @@
       margin-top: 3px;
     }
 
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
     .article-card {
       position: relative;
       overflow: hidden;
       background:
         linear-gradient(180deg, #ffffff, #f8fafc);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
 
     .article-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 24px 60px rgba(15, 23, 42, 0.13);
+    }
+
+    .article-card p {
+      color: #475569;
+      font-size: 15px;
+      flex: 1;
     }
 
     .contact-card {
@@ -837,7 +874,8 @@
     }
 
     @media (max-width: 1080px) {
-      .product-grid {
+      .product-grid,
+      .article-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -870,8 +908,12 @@
         padding: 24px;
       }
 
-      .product-preview img {
-        height: 190px;
+      .product-preview {
+        min-height: 210px;
+      }
+
+      .preview-metrics {
+        grid-template-columns: 1fr;
       }
 
       .product-actions {
@@ -1051,31 +1093,48 @@
     <div class="container">
       <h2>Products & Tools</h2>
       <p class="section-subtitle">
-        Practical AI products and software tools designed for professionals, job seekers,
+        Practical AI products and software tools designed for professionals, enterprises,
         creators, teams, and businesses.
       </p>
 
       <div class="product-grid">
 
         <div class="card product-card">
-          <h3>AIRDops</h3>
+          <h3>AIRDOps</h3>
 
           <p class="product-meta">
-            AI readiness and data quality product for documents, datasets, and RAG use cases.
+            Enterprise-grade data processing platform that transforms raw structured and unstructured data
+            into AI-ready assets for RAG applications and production AI systems.
           </p>
 
           <ul class="product-features">
-            <li>Scan documents for AI readiness</li>
-            <li>Generate quality and trust signals</li>
-            <li>Identify gaps before building RAG</li>
-            <li>Export readiness reports</li>
+            <li>Automated pipeline: ingest, clean, chunk, embed, index, and validate</li>
+            <li>Universal ingestion from PDFs, folders, web, cloud storage, and enterprise sources</li>
+            <li>AI Trust Score with quality, metadata, coherence, duplication, and noise signals</li>
+            <li>RAG Playground to test retrieval quality, chunks, scores, and latency before production</li>
+            <li>Versioning, audit trails, policy gates, and export-ready AI data assets</li>
           </ul>
 
           <a href="https://www.youtube.com/watch?v=YOUR_AIRDOPS_VIDEO_ID" target="_blank" class="product-preview">
-            <img src="https://img.youtube.com/vi/YOUR_AIRDOPS_VIDEO_ID/hqdefault.jpg" alt="AIRDops demo video thumbnail">
-            <div class="preview-overlay"></div>
-            <div class="play-pill">▶</div>
-            <div class="preview-title">Watch AIRDops Demo</div>
+            <div class="preview-bar">
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+            </div>
+            <div class="preview-body">
+              <h4>AI-Ready Data Pipeline</h4>
+              <div class="preview-metrics">
+                <div class="preview-metric">
+                  <strong>92%</strong>
+                  <span>AI Trust Score</span>
+                </div>
+                <div class="preview-metric">
+                  <strong>15+</strong>
+                  <span>Quality Signals</span>
+                </div>
+              </div>
+            </div>
+            <span class="play-pill">▶ Watch Demo</span>
           </a>
 
           <div class="product-actions">
@@ -1098,21 +1157,38 @@
           <h3>ResuWin</h3>
 
           <p class="product-meta">
-            AI-powered resume evaluator and job-match assistant for professionals.
+            AI-powered resume evaluator and job-match assistant that helps professionals improve
+            positioning, understand gaps, and prepare stronger applications.
           </p>
 
           <ul class="product-features">
-            <li>Compare resume with job description</li>
-            <li>Generate match score and skill gaps</li>
-            <li>Suggest stronger profile positioning</li>
-            <li>Support interview preparation</li>
+            <li>Compare resume with job description and generate match insights</li>
+            <li>Identify missing skills, weak keywords, and role-alignment gaps</li>
+            <li>Suggest stronger summary, experience bullets, and ATS-friendly improvements</li>
+            <li>Provide interview preparation direction based on the target role</li>
+            <li>Help job seekers move from generic resumes to focused applications</li>
           </ul>
 
           <a href="https://www.youtube.com/watch?v=YOUR_RESUWIN_VIDEO_ID" target="_blank" class="product-preview">
-            <img src="https://img.youtube.com/vi/YOUR_RESUWIN_VIDEO_ID/hqdefault.jpg" alt="ResuWin demo video thumbnail">
-            <div class="preview-overlay"></div>
-            <div class="play-pill">▶</div>
-            <div class="preview-title">Watch ResuWin Demo</div>
+            <div class="preview-bar">
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+            </div>
+            <div class="preview-body">
+              <h4>Resume Match Intelligence</h4>
+              <div class="preview-metrics">
+                <div class="preview-metric">
+                  <strong>88%</strong>
+                  <span>JD Match</span>
+                </div>
+                <div class="preview-metric">
+                  <strong>9</strong>
+                  <span>Improvement Areas</span>
+                </div>
+              </div>
+            </div>
+            <span class="play-pill">▶ Watch Demo</span>
           </a>
 
           <div class="product-actions">
@@ -1126,43 +1202,6 @@
             </div>
 
             <a href="https://www.youtube.com/watch?v=YOUR_RESUWIN_VIDEO_ID" target="_blank" class="button youtube-button">
-              ▶ Demo
-            </a>
-          </div>
-        </div>
-
-        <div class="card product-card">
-          <h3>Conversation Tool</h3>
-
-          <p class="product-meta">
-            Conversation intelligence product for prompts, chat analysis, and AI workflow improvement.
-          </p>
-
-          <ul class="product-features">
-            <li>Organize AI conversations</li>
-            <li>Extract actions and insights</li>
-            <li>Improve prompts and responses</li>
-            <li>Create reusable knowledge notes</li>
-          </ul>
-
-          <a href="https://www.youtube.com/watch?v=YOUR_CONVERSATION_TOOL_VIDEO_ID" target="_blank" class="product-preview">
-            <img src="https://img.youtube.com/vi/YOUR_CONVERSATION_TOOL_VIDEO_ID/hqdefault.jpg" alt="Conversation Tool demo video thumbnail">
-            <div class="preview-overlay"></div>
-            <div class="play-pill">▶</div>
-            <div class="preview-title">Watch Conversation Tool Demo</div>
-          </a>
-
-          <div class="product-actions">
-            <div class="download-dropdown">
-              <button class="button dark-button download-trigger" type="button">Download</button>
-              <div class="download-menu">
-                <a href="#">Windows <span>.exe</span></a>
-                <a href="#">Mac <span>.dmg</span></a>
-                <a href="#">Linux <span>.AppImage</span></a>
-              </div>
-            </div>
-
-            <a href="https://www.youtube.com/watch?v=YOUR_CONVERSATION_TOOL_VIDEO_ID" target="_blank" class="button youtube-button">
               ▶ Demo
             </a>
           </div>
@@ -1186,12 +1225,12 @@
         <div class="card testimonial-card">
           <div class="quote-mark">“</div>
           <p>
-            AIRDops made the idea of AI-ready data much easier to understand.
+            AIRDOps made the idea of AI-ready data much easier to understand.
             It clearly shows what needs improvement before using documents in a RAG system.
           </p>
           <div class="testimonial-user">
             <strong>Ananya Sharma</strong>
-            <span>Product Manager</span>
+            <span>Product Manager, India</span>
           </div>
         </div>
 
@@ -1202,32 +1241,8 @@
             is helpful because it shows gaps instead of giving generic suggestions.
           </p>
           <div class="testimonial-user">
-            <strong>Rohan Mehta</strong>
-            <span>Senior Software Engineer</span>
-          </div>
-        </div>
-
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            The Conversation Tool solves a real problem. It helps convert long AI chats
-            into actions, notes, and reusable ideas without losing context.
-          </p>
-          <div class="testimonial-user">
-            <strong>Priya Nair</strong>
-            <span>AI Consultant</span>
-          </div>
-        </div>
-
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            I like that the products are designed around real workflows.
-            They feel useful for professionals who want AI tools that are simple and actionable.
-          </p>
-          <div class="testimonial-user">
-            <strong>Vikram Sethi</strong>
-            <span>Technology Lead</span>
+            <strong>Michael Carter</strong>
+            <span>Senior Software Engineer, United States</span>
           </div>
         </div>
 
@@ -1238,20 +1253,56 @@
             the tools focus on helping users complete practical tasks.
           </p>
           <div class="testimonial-user">
-            <strong>Meera Kapoor</strong>
-            <span>Digital Transformation Manager</span>
+            <strong>Sophie Laurent</strong>
+            <span>Digital Transformation Lead, France</span>
           </div>
         </div>
 
         <div class="card testimonial-card">
           <div class="quote-mark">“</div>
           <p>
-            AIRDops made the idea of AI-ready data much easier to understand.
+            I like that the products are designed around real workflows.
+            They feel useful for professionals who want AI tools that are simple and actionable.
+          </p>
+          <div class="testimonial-user">
+            <strong>Daniel Weber</strong>
+            <span>Technology Consultant, Germany</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            AIRDOps feels like the missing bridge between raw enterprise content and usable AI systems.
+            The trust-score approach makes the platform easier to explain to business teams.
+          </p>
+          <div class="testimonial-user">
+            <strong>Priya Menon</strong>
+            <span>AI Program Manager, Singapore</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            ResuWin is practical for job seekers because it does not just rewrite a resume.
+            It shows whether the profile is aligned to the target role.
+          </p>
+          <div class="testimonial-user">
+            <strong>Oliver Bennett</strong>
+            <span>Career Coach, United Kingdom</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            AIRDOps made the idea of AI-ready data much easier to understand.
             It clearly shows what needs improvement before using documents in a RAG system.
           </p>
           <div class="testimonial-user">
             <strong>Ananya Sharma</strong>
-            <span>Product Manager</span>
+            <span>Product Manager, India</span>
           </div>
         </div>
 
@@ -1262,32 +1313,8 @@
             is helpful because it shows gaps instead of giving generic suggestions.
           </p>
           <div class="testimonial-user">
-            <strong>Rohan Mehta</strong>
-            <span>Senior Software Engineer</span>
-          </div>
-        </div>
-
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            The Conversation Tool solves a real problem. It helps convert long AI chats
-            into actions, notes, and reusable ideas without losing context.
-          </p>
-          <div class="testimonial-user">
-            <strong>Priya Nair</strong>
-            <span>AI Consultant</span>
-          </div>
-        </div>
-
-        <div class="card testimonial-card">
-          <div class="quote-mark">“</div>
-          <p>
-            I like that the products are designed around real workflows.
-            They feel useful for professionals who want AI tools that are simple and actionable.
-          </p>
-          <div class="testimonial-user">
-            <strong>Vikram Sethi</strong>
-            <span>Technology Lead</span>
+            <strong>Michael Carter</strong>
+            <span>Senior Software Engineer, United States</span>
           </div>
         </div>
 
@@ -1298,8 +1325,44 @@
             the tools focus on helping users complete practical tasks.
           </p>
           <div class="testimonial-user">
-            <strong>Meera Kapoor</strong>
-            <span>Digital Transformation Manager</span>
+            <strong>Sophie Laurent</strong>
+            <span>Digital Transformation Lead, France</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            I like that the products are designed around real workflows.
+            They feel useful for professionals who want AI tools that are simple and actionable.
+          </p>
+          <div class="testimonial-user">
+            <strong>Daniel Weber</strong>
+            <span>Technology Consultant, Germany</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            AIRDOps feels like the missing bridge between raw enterprise content and usable AI systems.
+            The trust-score approach makes the platform easier to explain to business teams.
+          </p>
+          <div class="testimonial-user">
+            <strong>Priya Menon</strong>
+            <span>AI Program Manager, Singapore</span>
+          </div>
+        </div>
+
+        <div class="card testimonial-card">
+          <div class="quote-mark">“</div>
+          <p>
+            ResuWin is practical for job seekers because it does not just rewrite a resume.
+            It shows whether the profile is aligned to the target role.
+          </p>
+          <div class="testimonial-user">
+            <strong>Oliver Bennett</strong>
+            <span>Career Coach, United Kingdom</span>
           </div>
         </div>
 
@@ -1311,43 +1374,111 @@
     <div class="container">
       <h2>Articles & Thoughts</h2>
       <p class="section-subtitle">
-        I write about GenAI, RAG, AI readiness, LLMOps, Agentic AI, architecture,
+        Writing on GenAI, RAG, AI readiness, LLMOps, Agentic AI, architecture,
         observability, and practical ways to build useful AI products.
       </p>
 
-      <div class="grid">
+      <div class="article-grid">
+
         <div class="card article-card">
-          <h3>RAG, GenAI & Practical AI Systems</h3>
+          <h3>Agentic AI Design Patterns that 90% of Teams Use</h3>
           <p>
-            Thoughts on building retrieval-augmented generation systems, AI products,
-            and enterprise-ready GenAI solutions.
+            A practical walkthrough of common agentic AI patterns including tool use,
+            planning, reflection, and multi-agent collaboration.
           </p>
-          <a href="https://medium.com/@neelamyadav10053" target="_blank" class="button primary-button">
+          <a href="https://medium.com/@neelamyadav10053/agentic-ai-design-patterns-that-90-of-teams-use-03b3bb481d62" target="_blank" class="button primary-button">
             Read on Medium
           </a>
         </div>
 
         <div class="card article-card">
-          <h3>MLOps, LLMOps & AI Observability</h3>
+          <h3>Enterprise RAG on AWS: From Scattered Docs to Trusted Answers at TB-Scale</h3>
           <p>
-            Notes on production AI systems, evaluation, monitoring, drift, cost,
-            quality, and reliable AI delivery practices.
+            A production-style enterprise RAG architecture using AWS services, validation,
+            vector retrieval, citations, monitoring, and trusted answer design.
           </p>
-          <a href="https://medium.com/@neelamyadav10053" target="_blank" class="button primary-button">
+          <a href="https://medium.com/@neelamyadav10053/enterprise-rag-on-aws-from-scattered-docs-to-trusted-answers-at-tb-scale-30e5a4c6be94" target="_blank" class="button primary-button">
             Read on Medium
           </a>
         </div>
 
         <div class="card article-card">
-          <h3>Agentic AI & AI Product Thinking</h3>
+          <h3>From Zero to RAG Chatbot in 10 Minutes (LangChain + Qdrant + Mistral + FastAPI + Airflow)</h3>
           <p>
-            Ideas on agents, automation, tool orchestration, human approval workflows,
-            and building AI products people can actually use.
+            A hands-on build showing ingestion, embeddings, Qdrant vector storage,
+            retrieval, FastAPI chat endpoint, Streamlit UI, and Airflow automation.
           </p>
-          <a href="https://medium.com/@neelamyadav10053" target="_blank" class="button primary-button">
+          <a href="https://medium.com/@neelamyadav10053/from-zero-to-rag-chatbot-in-10-minutes-langchain-qdrant-mistral-fastapi-airflow-f99c16dad91e" target="_blank" class="button primary-button">
             Read on Medium
           </a>
         </div>
+
+        <div class="card article-card">
+          <h3>Agentic AI Explained: How It Works and Real-World Uses</h3>
+          <p>
+            A beginner-friendly explanation of agentic AI, how it plans, uses tools,
+            refines results, and supports real-world automation use cases.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053/agentic-ai-explained-how-it-works-and-real-world-uses-b9beafa7db8a" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
+
+        <div class="card article-card">
+          <h3>Getting Started with MLOps: A Practical Guide</h3>
+          <p>
+            A practical guide to ML lifecycle, deployment, monitoring, reproducibility,
+            collaboration, drift management, compliance, and model operations.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053/getting-started-with-mlops-a-practical-guide-f5bf4af20774" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
+
+        <div class="card article-card">
+          <h3>RAG vs. CAG: Choosing the Right AI Approach</h3>
+          <p>
+            A comparison of Retrieval-Augmented Generation and Cache-Augmented Generation,
+            including when to choose each pattern based on data freshness, speed, and complexity.
+          </p>
+          <a href="https://medium.com/kpmg-uk-engineering/rag-vs-cag-choosing-the-right-ai-approach-a9e9f0517bf1" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
+
+        <div class="card article-card">
+          <h3>Building an Intelligent Chatbot with Langchain and Vector Databases</h3>
+          <p>
+            A practical introduction to building document-aware chatbots with LangChain,
+            embeddings, FAISS/vector databases, and a user-friendly chat interface.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053/building-an-intelligent-chatbot-with-langchain-and-vector-databases-0014a454376c" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
+
+        <div class="card article-card">
+          <h3>Decoding the AI Evolution: Langchain and Vector Databases</h3>
+          <p>
+            A conceptual guide to how LangChain and vector databases help LLMs work
+            with fresh data, embeddings, semantic retrieval, and document workflows.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053/decoding-the-ai-evolution-langchain-and-vector-databases-24b87d5fb6b2" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
+
+        <div class="card article-card">
+          <h3>Don’t Default to RAG: Think Before You Choose</h3>
+          <p>
+            A decision-focused article on when RAG is useful, when deterministic systems are safer,
+            and how to run RAG with stronger controls and measurement.
+          </p>
+          <a href="https://medium.com/@neelamyadav10053/dont-default-to-rag-think-before-you-choose-f6b1476a8b91" target="_blank" class="button primary-button">
+            Read on Medium
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
