@@ -254,7 +254,7 @@
 
     .about-shell {
       display: grid;
-      grid-template-columns: 0.78fr 1.25fr;
+      grid-template-columns: 0.82fr 1.18fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -288,9 +288,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       position: absolute;
       inset: 0;
-      display: none;
+      display: block;
+      z-index: 2;
     }
 
     .profile-placeholder {
@@ -325,13 +327,6 @@
       display: block;
       color: #64748b;
       font-size: 14px;
-    }
-
-    .profile-note {
-      margin-top: 16px;
-      color: #64748b;
-      font-size: 13px;
-      text-align: center;
     }
 
     .about-card {
@@ -369,44 +364,51 @@
       position: relative;
       z-index: 1;
       margin: 0 0 26px;
-      padding: 28px 30px;
-      border-radius: 26px;
+      padding: 34px 34px 32px;
+      border-radius: 28px;
       background:
-        linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 58, 138, 0.92)),
-        radial-gradient(circle at top right, rgba(34,211,238,0.25), transparent 30%);
+        radial-gradient(circle at 12% 15%, rgba(34,211,238,0.28), transparent 34%),
+        radial-gradient(circle at 90% 20%, rgba(167,139,250,0.28), transparent 30%),
+        linear-gradient(135deg, #0b1220 0%, #102a5c 52%, #075985 100%);
       color: white;
-      box-shadow: 0 24px 58px rgba(15, 23, 42, 0.22);
+      box-shadow: 0 28px 68px rgba(15, 23, 42, 0.28);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .signature-statement::before {
       content: "“";
       position: absolute;
-      top: -22px;
+      top: -26px;
       left: 18px;
       font-family: "Playfair Display", serif;
-      font-size: 96px;
+      font-size: 110px;
       line-height: 1;
       color: rgba(255,255,255,0.14);
     }
 
     .signature-statement p {
+      position: relative;
+      z-index: 1;
       margin: 0;
       font-family: "Playfair Display", serif;
       font-size: clamp(30px, 4vw, 50px);
       line-height: 1.08;
       letter-spacing: -1.2px;
-      color: white;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.24);
       max-width: 900px;
     }
 
     .signature-statement span {
+      position: relative;
+      z-index: 1;
       display: block;
-      margin-top: 16px;
+      margin-top: 18px;
       font-family: "Inter", sans-serif;
-      color: #bfdbfe;
+      color: #dbeafe;
       font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.4px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
     }
 
@@ -1079,16 +1081,12 @@
       <div class="about-shell">
         <div class="card profile-card">
           <div class="profile-frame">
-            <!-- Replace profile.jpg with your actual image file name after uploading it to the same repo -->
-            <img src="profile.jpg" alt="Neelam Yadav profile photo">
+            <img src="./profile.jpg" alt="Neelam Yadav profile photo" onerror="this.style.display='none';">
             <div class="profile-placeholder">
               <div class="avatar">👩‍💻</div>
               <strong>Neelam Yadav</strong>
               <span>AI Builder • Product Thinker • Enterprise Architect</span>
             </div>
-          </div>
-          <div class="profile-note">
-            Upload your image as <strong>profile.jpg</strong> in the same GitHub repo to show your photo here.
           </div>
         </div>
 
@@ -1269,16 +1267,16 @@
           <h3>ResuWin</h3>
 
           <p class="product-meta">
-            AI-powered resume evaluator and job-match assistant that helps professionals improve
-            positioning, understand gaps, and prepare stronger applications.
+            AI-powered career product that helps professionals score their resume against a job description,
+            get targeted recommendations, and practice AI mock interviews with feedback.
           </p>
 
           <ul class="product-features">
-            <li>Compare resume with job description and generate match insights</li>
-            <li>Identify missing skills, weak keywords, and role-alignment gaps</li>
-            <li>Suggest stronger summary, experience bullets, and ATS-friendly improvements</li>
-            <li>Provide interview preparation direction based on the target role</li>
-            <li>Help job seekers move from generic resumes to focused applications</li>
+            <li>ATS-based resume scoring against the target job description</li>
+            <li>AI-generated recommendations to improve skills, keywords, summary, and experience bullets</li>
+            <li>Job-fit analysis showing strengths, gaps, and role-alignment opportunities</li>
+            <li>AI mock interview preparation based on the resume and selected job role</li>
+            <li>Interview feedback on answers, confidence, clarity, and improvement areas</li>
           </ul>
 
           <a href="https://www.youtube.com/watch?v=YOUR_RESUWIN_VIDEO_ID" target="_blank" class="product-preview">
@@ -1288,15 +1286,15 @@
               <span class="preview-dot"></span>
             </div>
             <div class="preview-body">
-              <h4>Resume Match Intelligence</h4>
+              <h4>ATS Score + AI Mock Interview</h4>
               <div class="preview-metrics">
                 <div class="preview-metric">
                   <strong>88%</strong>
-                  <span>JD Match</span>
+                  <span>ATS Match</span>
                 </div>
                 <div class="preview-metric">
-                  <strong>9</strong>
-                  <span>Improvement Areas</span>
+                  <strong>AI</strong>
+                  <span>Interview Feedback</span>
                 </div>
               </div>
             </div>
